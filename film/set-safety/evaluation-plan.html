@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Safety Evaluation Plan</title>
+<meta name="description" content="A four-level Kirkpatrick evaluation plan for a film set safety orientation, owned by the 1st AD and reported to the producer." />
+<link rel="stylesheet" href="../assets/sls.css" />
+<style>
+  table.plan { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0.8rem 0 1.2rem; }
+  .plan th, .plan td { text-align: left; vertical-align: top; padding: 0.55rem 0.5rem; border-bottom: 1px solid var(--sls-line); }
+  .plan th { font-family: var(--sls-display); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sls-dim); }
+  .plan td:first-child { font-family: var(--sls-display); font-weight: 700; white-space: nowrap; }
+  .lvl { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.3rem 1rem; margin: 0.6rem 0 0; }
+  .lvl dt { font-family: var(--sls-display); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sls-tan); padding-top: 0.2rem; }
+  .lvl dd { margin: 0; }
+  .level { border-top: 2px solid var(--sls-cyan); padding-top: 0.4rem; margin-top: 2rem; }
+  .level h2 { margin-top: 0.4rem; }
+  .checklist td:last-child, .checklist th:last-child { text-align: center; width: 5rem; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; color: var(--sls-dim); font-size: 0.9rem; }
+  .meta-row b { color: var(--sls-white); font-weight: 500; }
+  @media (max-width: 640px) {
+    .lvl { grid-template-columns: 1fr; }
+    .plan.wide thead { display: none; }
+    .plan.wide tr { display: block; border-bottom: 1px solid var(--sls-line); padding: 0.4rem 0; }
+    .plan.wide td { display: block; border: 0; padding: 0.15rem 0; white-space: normal; }
+    .plan.wide td[data-h]::before { content: attr(data-h) ": "; color: var(--sls-dim); }
+  }
+  @media print {
+    @page { size: letter; margin: 0.5in; }
+    html { color-scheme: light; }
+    html, body { background: #fff !important; color: #111; font-size: 9.5pt; }
+    .sls-bar, .sls-foot .noprint, .noprint { display: none !important; }
+    .sls-foot { background: none; color: #555; margin-top: 0.2in; padding: 0; text-align: left; }
+    main.sls { max-width: none; padding: 0; }
+    h1 { font-size: 20pt; } h2 { color: #003b5b; font-size: 13pt; margin-top: 0.15in; } .lede { color: #003b5b; }
+    .level { border-top-color: #003b5b; break-inside: avoid; margin-top: 0.18in; }
+    .plan th, .lvl dt, .meta-row { color: #555; } .meta-row b { color: #111; }
+    .plan th, .plan td { border-bottom-color: #ccc; padding: 0.06in 0.05in; }
+    .card, .feature, .callout { background: #f4f1ec !important; color: #111; border-color: #d7d0c8; }
+    .callout b:first-child { color: #003b5b; }
+    a { color: #003b5b; }
+  }
+</style>
+</head>
+<body>
+<header class="sls-bar">
+  <a class="sls-wordmark" href="../../">Savage Light Studios</a>
+  <nav><a href="./">The orientation</a><a href="evaluation-plan.pdf">PDF</a></nav>
+</header>
+
+<main class="sls">
+  <span class="slate"><span>Evaluation plan</span><span>Set safety</span></span>
+  <h1>How We'll Know the Safety Orientation Worked</h1>
+  <p class="lede">A four-level evaluation plan for <i>Last Light</i>, using things a small production already has.</p>
+  <div class="meta-row">
+    <span><b>Owner:</b> 1st AD (Chris Bell)</span>
+    <span><b>Reports to:</b> producer (Sam Ortiz)</span>
+    <span><b>Covers:</b> the <a href="./">Set Safety Orientation</a>, taken by everyone before day 1</span>
+    <span><b>Shoot:</b> 18 days</span>
+  </div>
+
+  <h2>Purpose</h2>
+  <p>The orientation exists to change what people do on set: cover cable, bag stands, foot ladders, keep exits clear, call holds and report near misses. Knowing the rules is necessary but not the goal. This plan checks all four levels, but it is built around Level 3, behaviour on set, because that's where the training either works or doesn't.</p>
+
+  <h2>Summary</h2>
+  <table class="plan wide">
+    <thead><tr><th>Level</th><th>Question</th><th>Measure</th><th>When</th><th>Target</th></tr></thead>
+    <tbody>
+      <tr><td>1 Reaction</td><td data-h="Question">Was it useful and believable?</td><td data-h="Measure">3-question survey</td><td data-h="When">End of the course, before day 1</td><td data-h="Target">Average 4 of 5 or higher on "I'd call a hold"</td></tr>
+      <tr><td>2 Learning</td><td data-h="Question">Do people know the rules?</td><td data-h="Measure">Knowledge check; hazard hunt</td><td data-h="When">End of the course, before day 1</td><td data-h="Target">Everyone passes (7 of 8); average 6 of 8 hazards found before using "Show me"</td></tr>
+      <tr><td>3 Behaviour</td><td data-h="Question">Do people do it on set?</td><td data-h="Measure">Set-walk checklist; holds called for safety</td><td data-h="When">Days 1, 3 and 10, at call and after each company move</td><td data-h="Target">90% of checklist items met by day 3, held through day 10</td></tr>
+      <tr><td>4 Results</td><td data-h="Question">Is the set safer?</td><td data-h="Measure">Injuries; near misses reported; time lost to safety incidents</td><td data-h="When">Weekly, and at wrap</td><td data-h="Target">Zero lost-time injuries; near-miss reports rise in week 1, then fall</td></tr>
+    </tbody>
+  </table>
+
+  <section class="level">
+    <span class="slate"><span>Level 1</span><span>Reaction</span></span>
+    <h2>Did people find it useful?</h2>
+    <dl class="lvl">
+      <dt>Instrument</dt><dd>Three questions at the end of the course, each on a 1–5 scale:
+        <ol style="margin:0.3rem 0 0">
+          <li>"This was relevant to the work I'll be doing on this show."</li>
+          <li>"The rules were clear enough to follow on set."</li>
+          <li>"If I saw something unsafe, I would call a hold."</li>
+        </ol></dd>
+      <dt>Target</dt><dd>Average 4 or higher on question 3. It's the reaction that matters most, because it predicts whether people will speak up.</dd>
+      <dt>Acting on it</dt><dd>Low scores on question 3 go into the day 1 safety meeting: the 1st AD says plainly that holds are welcome and thanks the first person who calls one.</dd>
+    </dl>
+  </section>
+
+  <section class="level">
+    <span class="slate"><span>Level 2</span><span>Learning</span></span>
+    <h2>Do people know the rules?</h2>
+    <dl class="lvl">
+      <dt>Instruments</dt><dd>The 8-question knowledge check (pass mark 7), and the hazard hunt: how many of the eight hazards each person finds before using "Show me".</dd>
+      <dt>Target</dt><dd>Everyone passes before their first call. Average hunt score of 6 or more.</dd>
+      <dt>Acting on it</dt><dd>Any question more than a quarter of people miss is rewritten, or its lesson is. The hazard most often missed becomes the first thing the 1st AD points out on the day 1 set walk.</dd>
+    </dl>
+  </section>
+
+  <section class="level">
+    <span class="slate"><span>Level 3</span><span>Behaviour</span></span>
+    <h2>Do people do it on set?</h2>
+    <dl class="lvl">
+      <dt>Instrument</dt><dd>A 10-minute set walk by the 1st AD with the key PA, at call and after each company move, using the checklist below. Plus a tally of holds called for safety, kept on the production report.</dd>
+      <dt>When</dt><dd>Days 1, 3 and 10. Day 1 is the baseline, day 3 shows whether it took, and day 10 shows whether it lasted.</dd>
+      <dt>Target</dt><dd>90% of checklist items met by day 3, and still met on day 10.</dd>
+    </dl>
+    <table class="plan checklist">
+      <thead><tr><th>Set-walk checklist</th><th>Met?</th></tr></thead>
+      <tbody>
+        <tr><td style="font-family:inherit;font-weight:400;white-space:normal">Cable crossing walkways and doorways is under a mat or a ramp</td><td>☐</td></tr>
+        <tr><td style="font-family:inherit;font-weight:400;white-space:normal">Every stand with an arm out is bagged on the high leg</td><td>☐</td></tr>
+        <tr><td style="font-family:inherit;font-weight:400;white-space:normal">Every ladder in use has someone footing it</td><td>☐</td></tr>
+        <tr><td style="font-family:inherit;font-weight:400;white-space:normal">Fire exits and the route to them are clear</td><td>☐</td></tr>
+        <tr><td style="font-family:inherit;font-weight:400;white-space:normal">First aid kit is visible and stocked</td><td>☐</td></tr>
+        <tr><td style="font-family:inherit;font-weight:400;white-space:normal">No cable or connection in water; rain plan followed if wet</td><td>☐</td></tr>
+        <tr><td style="font-family:inherit;font-weight:400;white-space:normal">Hot lights are out of walkways or flagged</td><td>☐</td></tr>
+        <tr><td style="font-family:inherit;font-weight:400;white-space:normal">Generator keep-clear zone is clear</td><td>☐</td></tr>
+        <tr><td style="font-family:inherit;font-weight:400;white-space:normal">Crew calls ("Points", "Watch your back", "Striking") heard during the walk</td><td>☐</td></tr>
+        <tr><td style="font-family:inherit;font-weight:400;white-space:normal">Specialist work (cars, stunts, effects, weapons) had a safety meeting first</td><td>☐</td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><b>Why behaviour comes first</b>A crew can pass the knowledge check and still run cable across a doorway at 6 a.m. The set walk is the only measure here that shows the training working where it matters.</div>
+  </section>
+
+  <section class="level">
+    <span class="slate"><span>Level 4</span><span>Results</span></span>
+    <h2>Is the set safer?</h2>
+    <dl class="lvl">
+      <dt>Measures</dt><dd>
+        <b>Injuries</b> from the incident log, split into first-aid-only and lost-time. <br>
+        <b>Near misses reported</b> per week. <br>
+        <b>Time lost</b> to safety incidents, from the production report.</dd>
+      <dt>Target</dt><dd>Zero lost-time injuries. Near-miss reports <b>rise</b> in week 1, then fall.</dd>
+      <dt>Reading it</dt><dd>A training that works makes people report more at first, not less. A low near-miss count in week 1 would mean people aren't reporting, not that the set is safe. The fall afterwards is the sign that hazards are being fixed.</dd>
+    </dl>
+  </section>
+
+  <h2>Timeline</h2>
+  <table class="plan wide">
+    <thead><tr><th>When</th><th>What</th><th>Who</th></tr></thead>
+    <tbody>
+      <tr><td>Before day 1</td><td data-h="What">Everyone takes the orientation; reaction and knowledge results collected</td><td data-h="Who">Production office, 1st AD</td></tr>
+      <tr><td>Day 1</td><td data-h="What">Safety meeting at call; baseline set walk</td><td data-h="Who">1st AD, key PA</td></tr>
+      <tr><td>Day 3</td><td data-h="What">Second set walk; first one-page report to the producer</td><td data-h="Who">1st AD</td></tr>
+      <tr><td>Day 10</td><td data-h="What">Third set walk; check that behaviour held</td><td data-h="Who">1st AD, key PA</td></tr>
+      <tr><td>Weekly</td><td data-h="What">Incident and near-miss totals; time lost</td><td data-h="Who">1st AD to producer</td></tr>
+      <tr><td>Wrap</td><td data-h="What">Wrap report: all four levels, what changed in the course, and what to keep for the next show</td><td data-h="Who">1st AD to producer</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Limits, and what it costs</h2>
+  <ul>
+    <li><b>No control group.</b> One show can't compare trained and untrained crews. If the production company kept an incident log on its last show, compare against that, and check whether the behaviours seen on set are the ones the course taught.</li>
+    <li><b>Small numbers.</b> With a crew of about 40, one incident moves the numbers a lot. Read Level 4 as a story, not a rate.</li>
+    <li><b>Cost.</b> Nothing new to buy: the course, a printed checklist, the incident log and the production report. About 10 minutes of the 1st AD's time on three days, and a one-page weekly report.</li>
+  </ul>
+
+  <p class="noprint" style="margin-top:2rem"><a class="btn" href="evaluation-plan.pdf">Download the PDF</a> &nbsp; <a class="btn ghost" href="./">Back to the orientation</a></p>
+</main>
+
+<footer class="sls-foot">© 2026 Savage Light Studios · Sample by Feralucce Savage · <i>Last Light</i> and its crew are fictional.</footer>
+</body>
+</html>

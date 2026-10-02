@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Set Safety Orientation</title>
+<meta name="description" content="A set safety orientation for everyone on a film shoot, with a hazard hunt, three quick calls, a knowledge check and a four-level evaluation plan." />
+<link rel="stylesheet" href="../assets/sls.css" />
+<link rel="stylesheet" href="../assets/scenario.css" />
+<style>
+  [hidden] { display: none !important; }
+  .lesson { border-top: 1px solid var(--sls-line); padding-top: 0.5rem; margin-top: 2.2rem; }
+  .rule-line { font-family: var(--sls-display); font-weight: 700; font-size: 1.05rem; border-left: 4px solid var(--sls-cyan); padding: 0.5rem 0.9rem; background: var(--sls-panel); border-radius: 0 var(--sls-radius) var(--sls-radius) 0; }
+  .rule-line::before { content: "The rule: "; color: var(--sls-cyan); }
+  .calls { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 0.7rem; margin: 1rem 0; }
+  .calls .card b { font-family: var(--sls-display); font-size: 1.1rem; color: var(--sls-cyan); display: block; }
+  .toc { columns: 2; column-gap: 2rem; padding-left: 1.2rem; }
+  @media (max-width: 600px) { .toc { columns: 1; } }
+
+  /* hazard hunt */
+  .hunt-bar { position: sticky; top: 0; z-index: 5; background: rgba(17,17,17,0.97); border: 1px solid var(--sls-line); border-radius: var(--sls-radius); padding: 0.7rem 1rem; margin-top: 1rem; }
+  .hunt-bar .count { font-family: var(--sls-display); font-weight: 800; color: var(--sls-cyan); }
+  .hunt-bar .fb { margin: 0.3rem 0 0; }
+  .hunt-bar .fb.no { color: var(--sls-dim); }
+  html:not(.js) .hunt-bar { display: none; }
+  .map .spot { cursor: pointer; outline: none; }
+  .map .spot:focus-visible circle:last-child, .map .spot:hover circle:last-child { stroke: var(--sls-glow); stroke-width: 2; stroke-dasharray: 4 4; }
+  .map .hz.found circle:last-child { stroke: var(--sls-ember); stroke-width: 4; stroke-dasharray: none; fill: rgba(240,106,79,0.12); }
+  .map .ok.checked circle:last-child { stroke: var(--sls-cyan); stroke-width: 2; stroke-dasharray: 2 4; }
+  .hz-list li { margin-bottom: 0.5rem; }
+  .hz-list li.found-item b { color: var(--sls-ember); }
+  html.js .hz-list li:not(.found-item) { display: none; }
+  html.js .hz-list:not(:has(.found-item))::before { content: "Hazards you find will be listed here."; color: var(--sls-dim); }
+
+  /* quick calls and the check reuse .opt / .choice from scenario.css */
+  .q-block { margin: 1.5rem 0; }
+  .q-block .prompt { margin-bottom: 0.6rem; }
+  .q-block .why { display: none; margin-top: 0.6rem; }
+  .q-block.answered .why { display: block; }
+  html:not(.js) .q-block .why { display: block; }
+  .choice.right { border-color: var(--sls-cyan); background: #1f3440; }
+  .choice.wrong { border-color: var(--sls-ember); }
+  .result-box { font-family: var(--sls-display); }
+  .result-box .big { font-size: 2.4rem; font-weight: 800; color: var(--sls-cyan); line-height: 1; }
+  .ack label { display: flex; gap: 0.7rem; align-items: flex-start; }
+  .ack input { width: 1.3rem; height: 1.3rem; accent-color: var(--sls-cyan); margin-top: 0.15rem; }
+</style>
+</head>
+<body>
+<header class="sls-bar">
+  <a class="sls-wordmark" href="../../">Savage Light Studios</a>
+  <nav><a href="evaluation-plan.html">Evaluation plan</a></nav>
+</header>
+
+<main class="sls">
+  <section class="sls-hero">
+    <span class="slate"><span>Before Day 1</span><span>Safety</span><span>Take 1</span></span>
+    <h1>Set Safety Orientation</h1>
+    <p class="lede">Anyone can call a hold for safety. Here's when, and what else keeps a crew in one piece.</p>
+    <p class="dim">For everyone on <i>Last Light</i>: every department, cast and background. About 15 minutes. Take it before your first day.</p>
+  </section>
+
+  <h2>In this orientation</h2>
+  <ol class="toc">
+    <li><a href="#l1">Everyone's job</a></li>
+    <li><a href="#l2">Walkways, cable and stands</a></li>
+    <li><a href="#l3">Overhead, ladders and lifting</a></li>
+    <li><a href="#l4">Electrical and lights</a></li>
+    <li><a href="#l5">Specialist work</a></li>
+    <li><a href="#l6">Fatigue, weather and the drive home</a></li>
+    <li><a href="#l7">When something happens</a></li>
+    <li><a href="#hunt">Hazard hunt</a></li>
+    <li><a href="#calls">Three quick calls</a></li>
+    <li><a href="#check">Knowledge check</a></li>
+  </ol>
+
+  <section class="lesson" id="l1">
+    <span class="slate"><span>Lesson 1</span><span>Everyone's job</span></span>
+    <h2>Everyone's job</h2>
+    <p>The <b>1st AD</b> runs safety on set. They hold a safety meeting at call every day, and another before anything unusual: stunts, picture cars, special effects, prop weapons, work at height or near water.</p>
+    <p>But safety isn't only theirs. <b>Anyone on set can call a hold for safety</b>: a grip, a PA, an actor, someone in background. Say it on the radio or out loud: <i>"Hold the roll for safety."</i> No one will be angry that you called it.</p>
+    <p class="rule-line">See it, call it, then fix it or get the person who can.</p>
+  </section>
+
+  <section class="lesson" id="l2">
+    <span class="slate"><span>Lesson 2</span><span>Walkways</span></span>
+    <h2>Walkways, cable and stands</h2>
+    <p>Trips and falls are the most common injuries on a set, and most of them start with cable.</p>
+    <ul>
+      <li><b>Cable</b> runs along walls. If it has to cross a walkway or a doorway, it goes under a mat or a cable ramp, taped down.</li>
+      <li><b>Stands</b> with an arm out get a sandbag, always. Point the high leg under the load and saddle the bag over it. More weight for wind or a heavy light.</li>
+      <li>Don't move another department's stand or cable. Ask them.</li>
+    </ul>
+    <p class="rule-line">If you'd trip on it in the dark, so will someone else.</p>
+  </section>
+
+  <section class="lesson" id="l3">
+    <span class="slate"><span>Lesson 3</span><span>Overhead</span></span>
+    <h2>Overhead, ladders and lifting</h2>
+    <p>Listen for the calls. Crew shout them when they're moving through with something that can hurt you:</p>
+    <div class="calls">
+      <div class="card"><b>"Points!"</b>Someone is carrying gear with sharp or pointed ends, like stands or dolly track. Stop, look, step aside.</div>
+      <div class="card"><b>"Watch your back!"</b>Someone is coming through behind you with something that could hit you. Hold still or move in.</div>
+      <div class="card"><b>"Striking!"</b>A light is about to be switched on or off. Look away from it.</div>
+    </div>
+    <ul>
+      <li><b>Ladders:</b> one person on the ladder, one at the bottom footing it. Nobody walks under work overhead.</li>
+      <li><b>Lifting:</b> lift with your legs, ask for a second person, use the cart.</li>
+    </ul>
+    <p class="rule-line">Look up when you walk onto a set, and use the calls yourself.</p>
+  </section>
+
+  <section class="lesson" id="l4">
+    <span class="slate"><span>Lesson 4</span><span>Electrical</span></span>
+    <h2>Electrical and lights</h2>
+    <ul>
+      <li>Only electricians touch the generator, the distribution boxes and the connections. The generator has a keep-clear zone.</li>
+      <li>Lights stay hot long after they're switched off. Gloves, or leave it to electric.</li>
+      <li>Water and power don't mix. When it rains, cables come off the ground and connections get covered. If you see a cable in water, don't touch it: call electric.</li>
+    </ul>
+    <p class="rule-line">If it's plugged in and it isn't your department's, don't touch it.</p>
+  </section>
+
+  <section class="lesson" id="l5">
+    <span class="slate"><span>Lesson 5</span><span>Specialist work</span></span>
+    <h2>Specialist work</h2>
+    <p>Stunts, picture cars, special effects and prop weapons happen only with their specialist present and a safety meeting first.</p>
+    <ul>
+      <li>Keep clear of the action area and the vehicle's path. Never stand behind a car that's reversing: the driver can't see you.</li>
+      <li>Prop weapons: only the armourer hands them out, takes them back and checks them. Treat every one as real.</li>
+    </ul>
+    <p class="rule-line">If it's specialist work, you're either part of it or out of it.</p>
+  </section>
+
+  <section class="lesson" id="l6">
+    <span class="slate"><span>Lesson 6</span><span>People</span></span>
+    <h2>Fatigue, weather and the drive home</h2>
+    <ul>
+      <li>There are at least 10 hours between wrap and the next crew call. Long days still add up over a week.</li>
+      <li>Too tired to drive home? Tell the 2nd AD. The production can arrange a ride or a room, and that's far cheaper than a crash.</li>
+      <li>Heat, cold and rain: water, layers and breaks. Lightning stops exterior work.</li>
+    </ul>
+    <p class="rule-line">The most dangerous part of a shoot day is often the drive home.</p>
+  </section>
+
+  <section class="lesson" id="l7">
+    <span class="slate"><span>Lesson 7</span><span>Reporting</span></span>
+    <h2>When something happens</h2>
+    <ul>
+      <li><b>First aid kit:</b> at the production table at basecamp and on the set cart. If there's a set medic, they're on the call sheet.</li>
+      <li><b>Nearest hospital:</b> on every call sheet.</li>
+      <li><b>Report every incident, and every near miss,</b> to the 1st AD the same day. Near misses are how the next accident gets prevented.</li>
+    </ul>
+    <p class="rule-line">Nobody gets in trouble for reporting.</p>
+  </section>
+
+  <section class="lesson" id="hunt">
+    <span class="slate"><span>Practice</span><span>Hazard hunt</span><span>Set 2</span></span>
+    <h2>Hazard hunt: Rosie's Diner</h2>
+    <p>This is the diner set after lunch on Day 2. <b>Eight things here are unsafe.</b> Tap anything that looks wrong. Some things are set up properly, and tapping those will tell you so.</p>
+    <div class="hunt-bar" aria-live="polite"><span class="count">Found <span id="hcount">0</span> of 8</span><p class="fb">Tap the map.</p></div>
+    <figure class="map"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" role="img" aria-labelledby="dt dd" font-family="Montserrat, 'Segoe UI', sans-serif">
+  <title id="dt">Hazard hunt: Rosie's Diner set</title>
+  <desc id="dd">Top-down map of the diner set during a shoot. The entrance is at the bottom left, booths line the top wall, the counter runs down the right side, and the kitchen with the fire exit is in the top right. A dolly track with the camera runs through the middle of the room. Lights, stands, a ladder, cables and crew are placed around the room. Eight things on this map are unsafe.</desc>
+  <defs>
+    <pattern id="dgrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#2f2f2f" stroke-width="1"/></pattern>
+    <pattern id="dhatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#6b6158" stroke-width="2"/></pattern>
+  </defs>
+
+  <rect width="1000" height="700" fill="#111111"/>
+  <rect x="40" y="40" width="920" height="580" fill="#1a1a1a"/>
+  <rect x="40" y="40" width="920" height="580" fill="url(#dgrid)"/>
+
+  <!-- walls: front wall has the entrance gap (110-210); right wall has the fire exit gap (150-220) -->
+  <g stroke="#a79281" stroke-width="5" fill="none" stroke-linecap="square">
+    <path d="M60 60 H940 V150 M940 220 V580 H210 M110 580 H60 V60"/>
+    <path d="M720 60 V250 M720 300 V330 H940"/>
+  </g>
+  <!-- booths along the top wall -->
+  <g fill="#222222" stroke="#a79281" stroke-width="2">
+    <rect x="100" y="70" width="90" height="16"/><rect x="100" y="94" width="90" height="40"/><rect x="100" y="142" width="90" height="16"/>
+    <rect x="230" y="70" width="90" height="16"/><rect x="230" y="94" width="90" height="40"/><rect x="230" y="142" width="90" height="16"/>
+    <rect x="360" y="70" width="90" height="16"/><rect x="360" y="94" width="90" height="40"/><rect x="360" y="142" width="90" height="16"/>
+    <rect x="490" y="70" width="90" height="16"/><rect x="490" y="94" width="90" height="40"/><rect x="490" y="142" width="90" height="16"/>
+  </g>
+  <!-- counter and stools -->
+  <rect x="700" y="370" width="36" height="190" fill="#222222" stroke="#a79281" stroke-width="2"/>
+  <g fill="none" stroke="#a79281" stroke-width="2"><circle cx="676" cy="395" r="10"/><circle cx="676" cy="435" r="10"/><circle cx="676" cy="475" r="10"/><circle cx="676" cy="515" r="10"/></g>
+  <!-- kitchen: sink and range -->
+  <rect x="760" y="70" width="70" height="36" fill="#222222" stroke="#a79281" stroke-width="2"/><ellipse cx="795" cy="88" rx="22" ry="11" fill="none" stroke="#a79281" stroke-width="1.5"/>
+  <rect x="850" y="250" width="80" height="60" fill="#222222" stroke="#a79281" stroke-width="2"/>
+  <g font-size="10" font-weight="700" letter-spacing="1" fill="#8a8178" text-anchor="middle"><text x="795" y="124">SINK</text><text x="890" y="285">RANGE</text></g>
+
+  <!-- the actors in booth 3 -->
+  <circle cx="390" cy="114" r="9" fill="#d3e0ff"/><circle cx="420" cy="114" r="9" fill="#d3e0ff"/>
+
+  <!-- dolly track and camera -->
+  <g stroke="#a79281" stroke-width="3"><path d="M220 290 H560 M220 306 H560"/></g>
+  <g stroke="#6b6158" stroke-width="2"><path d="M240 286V310 M280 286V310 M320 286V310 M360 286V310 M400 286V310 M440 286V310 M480 286V310 M520 286V310"/></g>
+  <rect x="330" y="276" width="44" height="44" rx="4" fill="#2c2c2c" stroke="#6ec1e4" stroke-width="2.5"/>
+  <path d="M352 276 L338 236 L366 236 Z" fill="#6ec1e4" fill-opacity="0.5"/>
+  <text x="390" y="342" font-size="11" font-weight="700" letter-spacing="1.2" fill="#6ec1e4">CAMERA ON DOLLY</text>
+
+  <!-- main feed cable: generator outside, in through the entrance, along to distro -->
+  <path d="M150 620 V560 Q150 540 170 540 H260 V460 H640" fill="none" stroke="#f4d35e" stroke-width="3"/>
+  <rect x="640" y="446" width="30" height="28" fill="#2c2c2c" stroke="#f4d35e" stroke-width="2"/>
+  <text x="655" y="490" text-anchor="middle" font-size="9" font-weight="700" fill="#f4d35e">DISTRO</text>
+  <!-- feed to the kitchen through the kitchen door, properly matted (decoy, safe) -->
+  <path d="M670 455 H700 V275 H790 V160" fill="none" stroke="#f4d35e" stroke-width="2.5"/>
+  <g class="spot ok" data-say="That one's fine: the cable through the kitchen door is under a mat, so nobody trips on it.">
+    <rect x="696" y="255" width="44" height="40" fill="url(#dhatch)" stroke="#a79281" stroke-width="1.5"/>
+    <circle cx="718" cy="275" r="32" fill="transparent"/>
+  </g>
+
+  <!-- 1: cable across the entrance, no mat -->
+  <g class="spot hz" data-h="1" data-say="Cable across the entrance with no mat. Everyone walks through here, carrying things. Run it round the doorway, or cover it with a mat or a cable ramp.">
+    <circle cx="160" cy="568" r="34" fill="transparent"/>
+  </g>
+
+  <!-- 2: C-stand with arm out, no sandbag -->
+  <g stroke="#ffffff" stroke-width="2" fill="none">
+    <path d="M590 220 l-14 10 M590 220 l16 6 M590 220 l-2 -18"/><circle cx="590" cy="220" r="4" fill="#ffffff"/>
+    <path d="M590 220 L640 190" stroke-width="3"/><rect x="636" y="178" width="22" height="16" fill="#2c2c2c"/>
+  </g>
+  <g class="spot hz" data-h="2" data-say="A C-stand with its arm out over the set and no sandbag. Turn the high leg under the load and saddle a sandbag over it.">
+    <circle cx="605" cy="208" r="36" fill="transparent"/>
+  </g>
+  <!-- decoy: a bagged stand -->
+  <g stroke="#ffffff" stroke-width="2" fill="none">
+    <path d="M150 260 l-14 10 M150 260 l16 6 M150 260 l-2 -18"/><circle cx="150" cy="260" r="4" fill="#ffffff"/>
+  </g>
+  <rect x="160" y="256" width="18" height="12" rx="3" fill="#a79281"/>
+  <g class="spot ok" data-say="That one's fine: the stand has a sandbag on its leg.">
+    <circle cx="156" cy="262" r="30" fill="transparent"/>
+  </g>
+
+  <!-- 3: ladder in use, nobody footing it -->
+  <g stroke="#a79281" stroke-width="2" fill="none"><rect x="560" y="480" width="26" height="70"/><path d="M560 494H586 M560 508H586 M560 522H586 M560 536H586"/></g>
+  <circle cx="573" cy="488" r="8" fill="#d3e0ff"/>
+  <g class="spot hz" data-h="3" data-say="Someone up the ladder, and nobody footing it. One person on the ladder, one at the bottom holding it.">
+    <circle cx="573" cy="515" r="38" fill="transparent"/>
+  </g>
+
+  <!-- 4: stinger in the water under the sink -->
+  <ellipse cx="800" cy="150" rx="42" ry="16" fill="#00b4f0" fill-opacity="0.22"/>
+  <path d="M790 160 Q770 150 760 150 H740" fill="none" stroke="#f4d35e" stroke-width="2"/>
+  <g class="spot hz" data-h="4" data-say="A stinger (an extension cable) lying in water from the sink. Don't touch it: call electric to lift it off the floor and dry the area.">
+    <circle cx="795" cy="152" r="36" fill="transparent"/>
+  </g>
+
+  <!-- 5: hot light at head height in the walkway -->
+  <circle cx="300" cy="420" r="16" fill="#2c2c2c" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="300" cy="420" r="26" fill="none" stroke="#f4d35e" stroke-width="1.5" stroke-dasharray="3 4"/>
+  <path d="M300 420 L360 400 L360 440 Z" fill="#f4d35e" fill-opacity="0.18"/>
+  <g class="spot hz" data-h="5" data-say="A hot light at head height on the route from the door. Move it out of the walkway, or flag it and mark it so nobody walks into it.">
+    <circle cx="305" cy="420" r="36" fill="transparent"/>
+  </g>
+
+  <!-- 6: equipment cases blocking the fire exit -->
+  <g fill="#2c2c2c" stroke="#a79281" stroke-width="2"><rect x="880" y="150" width="50" height="22"/><rect x="884" y="174" width="46" height="22"/><rect x="878" y="198" width="52" height="20"/></g>
+  <text x="975" y="190" font-size="10" font-weight="700" letter-spacing="1" fill="#8a8178" text-anchor="middle" transform="rotate(90 975 190)">FIRE EXIT</text>
+  <g class="spot hz" data-h="6" data-say="Equipment cases stacked in front of the fire exit. Exits stay clear, always. Find the cases another home.">
+    <circle cx="905" cy="185" r="38" fill="transparent"/>
+  </g>
+
+  <!-- 7: someone sitting on the dolly track -->
+  <circle cx="500" cy="298" r="10" fill="#d3e0ff"/>
+  <g class="spot hz" data-h="7" data-say="Someone sitting on the dolly track. The track isn't a bench: it gets knocked out of level, and the dolly may be coming.">
+    <circle cx="500" cy="298" r="30" fill="transparent"/>
+  </g>
+
+  <!-- 8: first aid kit under a pile of jackets -->
+  <rect x="112" y="102" width="22" height="18" fill="#ffffff"/><path d="M123 105V117 M117 111H129" stroke="#1f7a4d" stroke-width="3"/>
+  <path d="M128 100 q20 -10 40 0 q12 10 20 4 q8 16 -10 22 q-24 8 -38 -2 q-16 -8 -12 -24z" fill="#4d453f" stroke="#6b6158" stroke-width="1.5"/>
+  <g class="spot hz" data-h="8" data-say="The first aid kit is buried under a pile of jackets. It has to be clear and easy to see, on every set.">
+    <circle cx="145" cy="114" r="34" fill="transparent"/>
+  </g>
+
+  <!-- labels -->
+  <g font-size="12" font-weight="700" letter-spacing="2" fill="#8a8178">
+    <text x="330" y="200">BOOTHS</text>
+    <text x="760" y="226">KITCHEN</text>
+    <text x="745" y="420" transform="rotate(90 745 420)">COUNTER</text>
+    <text x="120" y="606">ENTRANCE</text>
+  </g>
+  <text x="240" y="660" font-size="11" fill="#b8c2cc">Yellow lines are power cables. The generator is outside the entrance.</text>
+
+  <!-- scale bar: 40 px = 1 m -->
+  <g transform="translate(40 652)" font-size="10" fill="#b8c2cc">
+    <rect x="0" y="0" width="50" height="7" fill="#ffffff"/><rect x="50" y="0" width="50" height="7" fill="#111111" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="0" y="-5">0</text><text x="100" y="-5" text-anchor="middle">2.5 m</text>
+  </g>
+</svg>
+<figcaption>Rosie's Diner, Set 2. Yellow lines are power cables.</figcaption></figure>
+    <p class="js-only"><button class="btn ghost" type="button" id="hshow">Show me all eight</button></p>
+    <h3>The hazards</h3>
+    <ol class="hz-list">
+      <li data-h="1"><b>Cable across the entrance with no mat.</b> Run it round the doorway, or cover it with a mat or a cable ramp.</li>
+      <li data-h="2"><b>A C-stand with its arm out and no sandbag.</b> High leg under the load, sandbag over it.</li>
+      <li data-h="3"><b>Someone up a ladder with nobody footing it.</b> One on the ladder, one at the bottom.</li>
+      <li data-h="4"><b>A stinger lying in water by the sink.</b> Don't touch it; call electric.</li>
+      <li data-h="5"><b>A hot light at head height in the walkway.</b> Move it, or flag and mark it.</li>
+      <li data-h="6"><b>Cases blocking the fire exit.</b> Exits stay clear, always.</li>
+      <li data-h="7"><b>Someone sitting on the dolly track.</b> It's not a bench, and the dolly may be coming.</li>
+      <li data-h="8"><b>The first aid kit buried under jackets.</b> Clear and visible on every set.</li>
+    </ol>
+  </section>
+
+  <section class="lesson" id="calls">
+    <span class="slate"><span>Practice</span><span>Three quick calls</span></span>
+    <h2>Three quick calls</h2>
+
+    <div class="q-block" data-best="B">
+      <p class="prompt">1. You're carrying a tray of coffee to set, and there's an untaped cable across the doorway. What do you do?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A"><p class="say">Step over it carefully and carry on.</p></li>
+        <li class="opt" data-key="B" data-best><p class="say">Put the coffee down, tell electric on the radio, and stand by the cable until it's covered.</p></li>
+        <li class="opt" data-key="C"><p class="say">Move the cable out of the way yourself.</p></li>
+      </ol>
+      <p class="why callout">The next person through may be carrying a light, or not looking. Cable belongs to electric, so you call it and guard it rather than move it.</p>
+    </div>
+
+    <div class="q-block" data-best="A">
+      <p class="prompt">2. A stand with a light on it rocks every time the diner door opens. What do you do?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-best><p class="say">Steady it and call grip to bag it.</p></li>
+        <li class="opt" data-key="B"><p class="say">Grab a sandbag and put it on any leg.</p></li>
+        <li class="opt" data-key="C"><p class="say">Leave it. It's grip's stand.</p></li>
+      </ol>
+      <p class="why callout">A falling light hurts people and breaks things, so steady it now. But the bag has to go on the right leg, under the load, which is grip's call.</p>
+    </div>
+
+    <div class="q-block" data-best="B">
+      <p class="prompt">3. Wrap is at 9 p.m. after a 14-hour day, and you live an hour away. You're struggling to keep your eyes open. What do you do?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A"><p class="say">Drive with the window down and the radio up.</p></li>
+        <li class="opt" data-key="B" data-best><p class="say">Tell the 2nd AD you're too tired to drive.</p></li>
+        <li class="opt" data-key="C"><p class="say">Nap in the car for 20 minutes, then drive.</p></li>
+      </ol>
+      <p class="why callout">Productions arrange rides and rooms for exactly this. A short nap doesn't fix a 14-hour day, and the window trick doesn't work.</p>
+    </div>
+  </section>
+
+  <section class="lesson" id="check">
+    <span class="slate"><span>Check</span><span>8 questions</span><span>Pass: 7</span></span>
+    <h2>Knowledge check</h2>
+    <p>Eight questions. You need seven right to pass. Each answer explains itself.</p>
+
+    <div class="q-block quiz" data-best="B"><p class="prompt">1. Who can call a hold for safety?</p><ol class="opts">
+      <li class="opt" data-key="A"><p class="say">Only the 1st AD</p></li>
+      <li class="opt" data-key="B" data-best><p class="say">Anyone on set</p></li>
+      <li class="opt" data-key="C"><p class="say">Department heads</p></li></ol>
+      <p class="why callout">Anyone: crew, cast or background. The 1st AD runs safety, but everyone can stop work.</p></div>
+
+    <div class="q-block quiz" data-best="C"><p class="prompt">2. A cable has to cross a walkway. What's right?</p><ol class="opts">
+      <li class="opt" data-key="A"><p class="say">Tape it flat to the floor</p></li>
+      <li class="opt" data-key="B"><p class="say">Put a sign next to it</p></li>
+      <li class="opt" data-key="C" data-best><p class="say">Cover it with a mat or a cable ramp, taped down</p></li></ol>
+      <p class="why callout">Tape alone still leaves a lump to trip on. A mat or a ramp makes the crossing flat and visible.</p></div>
+
+    <div class="q-block quiz" data-best="A"><p class="prompt">3. Where does the sandbag go on a stand with its arm out?</p><ol class="opts">
+      <li class="opt" data-key="A" data-best><p class="say">On the high leg, turned to point under the load</p></li>
+      <li class="opt" data-key="B"><p class="say">On whichever leg is easiest to reach</p></li>
+      <li class="opt" data-key="C"><p class="say">On the floor beside the stand</p></li></ol>
+      <p class="why callout">The load pulls the stand over its arm. The high leg under the load, with the bag saddled over it, holds it down.</p></div>
+
+    <div class="q-block quiz" data-best="B"><p class="prompt">4. Someone behind you shouts "Points!" What does it mean?</p><ol class="opts">
+      <li class="opt" data-key="A"><p class="say">A light is about to switch on</p></li>
+      <li class="opt" data-key="B" data-best><p class="say">Gear with sharp or pointed ends is coming through: stop, look, step aside</p></li>
+      <li class="opt" data-key="C"><p class="say">The scene is about to roll</p></li></ol>
+      <p class="why callout">"Points" warns of stands, tripods or track moving through. "Striking" is the call for a light.</p></div>
+
+    <div class="q-block quiz" data-best="C"><p class="prompt">5. You hear "Striking!" What do you do?</p><ol class="opts">
+      <li class="opt" data-key="A"><p class="say">Help take the set down</p></li>
+      <li class="opt" data-key="B"><p class="say">Clear the stunt area</p></li>
+      <li class="opt" data-key="C" data-best><p class="say">Look away: a light is being switched on or off</p></li></ol>
+      <p class="why callout">"Striking!" warns that a light is about to switch on or off. Set lights are bright enough to hurt your eyes.</p></div>
+
+    <div class="q-block quiz" data-best="A"><p class="prompt">6. A breaker trips on the distribution box. Who resets it?</p><ol class="opts">
+      <li class="opt" data-key="A" data-best><p class="say">An electrician</p></li>
+      <li class="opt" data-key="B"><p class="say">Whoever is closest</p></li>
+      <li class="opt" data-key="C"><p class="say">A PA, if electric is busy</p></li></ol>
+      <p class="why callout">A trip means something's wrong. Only electricians touch the generator, the distribution and the connections.</p></div>
+
+    <div class="q-block quiz" data-best="C"><p class="prompt">7. Between takes, an actor hands you their prop gun to hold. What do you do?</p><ol class="opts">
+      <li class="opt" data-key="A"><p class="say">Hold it until the next take</p></li>
+      <li class="opt" data-key="B"><p class="say">Put it down on the props table</p></li>
+      <li class="opt" data-key="C" data-best><p class="say">Don't take it. Call the armourer.</p></li></ol>
+      <p class="why callout">Only the armourer hands out, takes back and checks prop weapons. Treat every one as real.</p></div>
+
+    <div class="q-block quiz" data-best="B"><p class="prompt">8. A light nearly falls on someone, but nobody is hurt. What happens next?</p><ol class="opts">
+      <li class="opt" data-key="A"><p class="say">Nothing; nobody was hurt</p></li>
+      <li class="opt" data-key="B" data-best><p class="say">Report the near miss to the 1st AD the same day</p></li>
+      <li class="opt" data-key="C"><p class="say">Mention it at wrap</p></li></ol>
+      <p class="why callout">A near miss is a free warning. Reporting it is how the next accident gets prevented, and nobody gets in trouble for it.</p></div>
+
+    <div class="result-box card js-only" id="result" hidden aria-live="polite"><p class="big" id="score"></p><p id="verdict" style="margin:0.4rem 0 0"></p></div>
+  </section>
+
+  <section class="lesson" id="ack">
+    <span class="slate"><span>Done</span><span>Acknowledgement</span></span>
+    <h2>Before your first day</h2>
+    <div class="ack card">
+      <label><input type="checkbox" id="ackbox"> <span>I've read the set safety rules, and I know I can call a hold for safety at any time.</span></label>
+      <p style="margin:0.8rem 0 0" class="js-only"><button class="btn" type="button" id="ackbtn" disabled>I understand</button></p>
+      <p id="ackmsg" class="dim" hidden style="margin:0.6rem 0 0">Thanks. On a real show this would be logged with the 1st AD; in this sample nothing is recorded. See you at the safety meeting at call.</p>
+    </div>
+    <p style="margin-top:1.5rem">For the producer and 1st AD: <a href="evaluation-plan.html">how we'll know this orientation worked</a>, the four-level evaluation plan.</p>
+    <p>More: <a href="../pa-first-day/">Your First Day as a PA</a> · <a href="../call-sheet/">Reading a Call Sheet</a> · <a href="../../">all samples</a></p>
+  </section>
+</main>
+
+<footer class="sls-foot">© 2026 Savage Light Studios · Sample by Feralucce Savage · A training sample, not a substitute for your production's own safety program. <i>Last Light</i> is fictional.</footer>
+
+<script>
+(function () {
+  "use strict";
+  document.documentElement.classList.add("js");
+  function $(s, e) { return (e || document).querySelector(s); }
+  function $$(s, e) { return Array.prototype.slice.call((e || document).querySelectorAll(s)); }
+
+  // hazard hunt
+  var found = {}, fb = $(".hunt-bar .fb");
+  function reveal(h) {
+    if (found[h]) return false;
+    found[h] = true;
+    var g = $('.map .hz[data-h="' + h + '"]'); if (g) g.classList.add("found");
+    $('.hz-list li[data-h="' + h + '"]').classList.add("found-item");
+    $("#hcount").textContent = Object.keys(found).length;
+    return true;
+  }
+  $$(".map .spot").forEach(function (g) {
+    g.setAttribute("tabindex", "0");
+    g.setAttribute("role", "button");
+    g.setAttribute("aria-label", "Check this spot");
+    function act() {
+      if (g.classList.contains("hz")) {
+        var fresh = reveal(g.dataset.h);
+        fb.textContent = (fresh ? "Found one. " : "Already found. ") + g.dataset.say;
+        fb.className = "fb";
+        if (Object.keys(found).length === 8) fb.textContent += " That's all eight.";
+      } else {
+        g.classList.add("checked");
+        fb.textContent = g.dataset.say; fb.className = "fb no";
+      }
+    }
+    g.addEventListener("click", act);
+    g.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); act(); } });
+  });
+  $("#hshow").addEventListener("click", function () {
+    for (var h = 1; h <= 8; h++) reveal(String(h));
+    fb.textContent = "All eight are marked on the map and listed below."; fb.className = "fb";
+  });
+
+  // quick calls and knowledge check: one choice each, answer explained
+  var quizRight = 0, quizDone = 0, quizTotal = $$(".q-block.quiz").length;
+  $$(".q-block").forEach(function (q) {
+    var opts = $$(".opt", q);
+    opts.forEach(function (o) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "choice"; b.dataset.key = o.dataset.key;
+      b.innerHTML = $(".say", o).innerHTML; $(".say", o).hidden = true;
+      o.insertBefore(b, o.firstChild);
+      b.addEventListener("click", function () {
+        if (q.classList.contains("answered")) return;
+        q.classList.add("answered");
+        var right = o.hasAttribute("data-best");
+        opts.forEach(function (x) {
+          var bx = $(".choice", x); bx.disabled = true;
+          if (x.hasAttribute("data-best")) bx.classList.add("right");
+        });
+        if (!right) b.classList.add("wrong");
+        b.setAttribute("aria-pressed", "true");
+        var why = $(".why", q);
+        why.className = "why callout" + (right ? "" : " ember");
+        why.insertAdjacentHTML("afterbegin", "<b>" + (right ? "Right" : "Not quite") + "</b>");
+        if (q.classList.contains("quiz")) {
+          quizDone++; if (right) quizRight++;
+          if (quizDone === quizTotal) {
+            var pass = quizRight >= 7;
+            $("#result").hidden = false;
+            $("#score").textContent = quizRight + " / " + quizTotal;
+            $("#verdict").textContent = pass ? "Passed. You're ready for the safety meeting at call." : "Not yet: you need 7. Reread the lessons for the ones you missed, then reload the page to try again.";
+          }
+        }
+      });
+    });
+  });
+
+  // acknowledgement
+  $("#ackbox").addEventListener("change", function () { $("#ackbtn").disabled = !this.checked; });
+  $("#ackbtn").addEventListener("click", function () { $("#ackmsg").hidden = false; this.disabled = true; $("#ackbox").disabled = true; });
+})();
+</script>
+</body>
+</html>

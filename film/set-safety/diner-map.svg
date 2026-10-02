@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" role="img" aria-labelledby="dt dd" font-family="Montserrat, 'Segoe UI', sans-serif">
+  <title id="dt">Hazard hunt: Rosie's Diner set</title>
+  <desc id="dd">Top-down map of the diner set during a shoot. The entrance is at the bottom left, booths line the top wall, the counter runs down the right side, and the kitchen with the fire exit is in the top right. A dolly track with the camera runs through the middle of the room. Lights, stands, a ladder, cables and crew are placed around the room. Eight things on this map are unsafe.</desc>
+  <defs>
+    <pattern id="dgrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#2f2f2f" stroke-width="1"/></pattern>
+    <pattern id="dhatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#6b6158" stroke-width="2"/></pattern>
+  </defs>
+
+  <rect width="1000" height="700" fill="#111111"/>
+  <rect x="40" y="40" width="920" height="580" fill="#1a1a1a"/>
+  <rect x="40" y="40" width="920" height="580" fill="url(#dgrid)"/>
+
+  <!-- walls: front wall has the entrance gap (110-210); right wall has the fire exit gap (150-220) -->
+  <g stroke="#a79281" stroke-width="5" fill="none" stroke-linecap="square">
+    <path d="M60 60 H940 V150 M940 220 V580 H210 M110 580 H60 V60"/>
+    <path d="M720 60 V250 M720 300 V330 H940"/>
+  </g>
+  <!-- booths along the top wall -->
+  <g fill="#222222" stroke="#a79281" stroke-width="2">
+    <rect x="100" y="70" width="90" height="16"/><rect x="100" y="94" width="90" height="40"/><rect x="100" y="142" width="90" height="16"/>
+    <rect x="230" y="70" width="90" height="16"/><rect x="230" y="94" width="90" height="40"/><rect x="230" y="142" width="90" height="16"/>
+    <rect x="360" y="70" width="90" height="16"/><rect x="360" y="94" width="90" height="40"/><rect x="360" y="142" width="90" height="16"/>
+    <rect x="490" y="70" width="90" height="16"/><rect x="490" y="94" width="90" height="40"/><rect x="490" y="142" width="90" height="16"/>
+  </g>
+  <!-- counter and stools -->
+  <rect x="700" y="370" width="36" height="190" fill="#222222" stroke="#a79281" stroke-width="2"/>
+  <g fill="none" stroke="#a79281" stroke-width="2"><circle cx="676" cy="395" r="10"/><circle cx="676" cy="435" r="10"/><circle cx="676" cy="475" r="10"/><circle cx="676" cy="515" r="10"/></g>
+  <!-- kitchen: sink and range -->
+  <rect x="760" y="70" width="70" height="36" fill="#222222" stroke="#a79281" stroke-width="2"/><ellipse cx="795" cy="88" rx="22" ry="11" fill="none" stroke="#a79281" stroke-width="1.5"/>
+  <rect x="850" y="250" width="80" height="60" fill="#222222" stroke="#a79281" stroke-width="2"/>
+  <g font-size="10" font-weight="700" letter-spacing="1" fill="#8a8178" text-anchor="middle"><text x="795" y="124">SINK</text><text x="890" y="285">RANGE</text></g>
+
+  <!-- the actors in booth 3 -->
+  <circle cx="390" cy="114" r="9" fill="#d3e0ff"/><circle cx="420" cy="114" r="9" fill="#d3e0ff"/>
+
+  <!-- dolly track and camera -->
+  <g stroke="#a79281" stroke-width="3"><path d="M220 290 H560 M220 306 H560"/></g>
+  <g stroke="#6b6158" stroke-width="2"><path d="M240 286V310 M280 286V310 M320 286V310 M360 286V310 M400 286V310 M440 286V310 M480 286V310 M520 286V310"/></g>
+  <rect x="330" y="276" width="44" height="44" rx="4" fill="#2c2c2c" stroke="#6ec1e4" stroke-width="2.5"/>
+  <path d="M352 276 L338 236 L366 236 Z" fill="#6ec1e4" fill-opacity="0.5"/>
+  <text x="390" y="342" font-size="11" font-weight="700" letter-spacing="1.2" fill="#6ec1e4">CAMERA ON DOLLY</text>
+
+  <!-- main feed cable: generator outside, in through the entrance, along to distro -->
+  <path d="M150 620 V560 Q150 540 170 540 H260 V460 H640" fill="none" stroke="#f4d35e" stroke-width="3"/>
+  <rect x="640" y="446" width="30" height="28" fill="#2c2c2c" stroke="#f4d35e" stroke-width="2"/>
+  <text x="655" y="490" text-anchor="middle" font-size="9" font-weight="700" fill="#f4d35e">DISTRO</text>
+  <!-- feed to the kitchen through the kitchen door, properly matted (decoy, safe) -->
+  <path d="M670 455 H700 V275 H790 V160" fill="none" stroke="#f4d35e" stroke-width="2.5"/>
+  <g class="spot ok" data-say="That one's fine: the cable through the kitchen door is under a mat, so nobody trips on it.">
+    <rect x="696" y="255" width="44" height="40" fill="url(#dhatch)" stroke="#a79281" stroke-width="1.5"/>
+    <circle cx="718" cy="275" r="32" fill="transparent"/>
+  </g>
+
+  <!-- 1: cable across the entrance, no mat -->
+  <g class="spot hz" data-h="1" data-say="Cable across the entrance with no mat. Everyone walks through here, carrying things. Run it round the doorway, or cover it with a mat or a cable ramp.">
+    <circle cx="160" cy="568" r="34" fill="transparent"/>
+  </g>
+
+  <!-- 2: C-stand with arm out, no sandbag -->
+  <g stroke="#ffffff" stroke-width="2" fill="none">
+    <path d="M590 220 l-14 10 M590 220 l16 6 M590 220 l-2 -18"/><circle cx="590" cy="220" r="4" fill="#ffffff"/>
+    <path d="M590 220 L640 190" stroke-width="3"/><rect x="636" y="178" width="22" height="16" fill="#2c2c2c"/>
+  </g>
+  <g class="spot hz" data-h="2" data-say="A C-stand with its arm out over the set and no sandbag. Turn the high leg under the load and saddle a sandbag over it.">
+    <circle cx="605" cy="208" r="36" fill="transparent"/>
+  </g>
+  <!-- decoy: a bagged stand -->
+  <g stroke="#ffffff" stroke-width="2" fill="none">
+    <path d="M150 260 l-14 10 M150 260 l16 6 M150 260 l-2 -18"/><circle cx="150" cy="260" r="4" fill="#ffffff"/>
+  </g>
+  <rect x="160" y="256" width="18" height="12" rx="3" fill="#a79281"/>
+  <g class="spot ok" data-say="That one's fine: the stand has a sandbag on its leg.">
+    <circle cx="156" cy="262" r="30" fill="transparent"/>
+  </g>
+
+  <!-- 3: ladder in use, nobody footing it -->
+  <g stroke="#a79281" stroke-width="2" fill="none"><rect x="560" y="480" width="26" height="70"/><path d="M560 494H586 M560 508H586 M560 522H586 M560 536H586"/></g>
+  <circle cx="573" cy="488" r="8" fill="#d3e0ff"/>
+  <g class="spot hz" data-h="3" data-say="Someone up the ladder, and nobody footing it. One person on the ladder, one at the bottom holding it.">
+    <circle cx="573" cy="515" r="38" fill="transparent"/>
+  </g>
+
+  <!-- 4: stinger in the water under the sink -->
+  <ellipse cx="800" cy="150" rx="42" ry="16" fill="#00b4f0" fill-opacity="0.22"/>
+  <path d="M790 160 Q770 150 760 150 H740" fill="none" stroke="#f4d35e" stroke-width="2"/>
+  <g class="spot hz" data-h="4" data-say="A stinger (an extension cable) lying in water from the sink. Don't touch it: call electric to lift it off the floor and dry the area.">
+    <circle cx="795" cy="152" r="36" fill="transparent"/>
+  </g>
+
+  <!-- 5: hot light at head height in the walkway -->
+  <circle cx="300" cy="420" r="16" fill="#2c2c2c" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="300" cy="420" r="26" fill="none" stroke="#f4d35e" stroke-width="1.5" stroke-dasharray="3 4"/>
+  <path d="M300 420 L360 400 L360 440 Z" fill="#f4d35e" fill-opacity="0.18"/>
+  <g class="spot hz" data-h="5" data-say="A hot light at head height on the route from the door. Move it out of the walkway, or flag it and mark it so nobody walks into it.">
+    <circle cx="305" cy="420" r="36" fill="transparent"/>
+  </g>
+
+  <!-- 6: equipment cases blocking the fire exit -->
+  <g fill="#2c2c2c" stroke="#a79281" stroke-width="2"><rect x="880" y="150" width="50" height="22"/><rect x="884" y="174" width="46" height="22"/><rect x="878" y="198" width="52" height="20"/></g>
+  <text x="975" y="190" font-size="10" font-weight="700" letter-spacing="1" fill="#8a8178" text-anchor="middle" transform="rotate(90 975 190)">FIRE EXIT</text>
+  <g class="spot hz" data-h="6" data-say="Equipment cases stacked in front of the fire exit. Exits stay clear, always. Find the cases another home.">
+    <circle cx="905" cy="185" r="38" fill="transparent"/>
+  </g>
+
+  <!-- 7: someone sitting on the dolly track -->
+  <circle cx="500" cy="298" r="10" fill="#d3e0ff"/>
+  <g class="spot hz" data-h="7" data-say="Someone sitting on the dolly track. The track isn't a bench: it gets knocked out of level, and the dolly may be coming.">
+    <circle cx="500" cy="298" r="30" fill="transparent"/>
+  </g>
+
+  <!-- 8: first aid kit under a pile of jackets -->
+  <rect x="112" y="102" width="22" height="18" fill="#ffffff"/><path d="M123 105V117 M117 111H129" stroke="#1f7a4d" stroke-width="3"/>
+  <path d="M128 100 q20 -10 40 0 q12 10 20 4 q8 16 -10 22 q-24 8 -38 -2 q-16 -8 -12 -24z" fill="#4d453f" stroke="#6b6158" stroke-width="1.5"/>
+  <g class="spot hz" data-h="8" data-say="The first aid kit is buried under a pile of jackets. It has to be clear and easy to see, on every set.">
+    <circle cx="145" cy="114" r="34" fill="transparent"/>
+  </g>
+
+  <!-- labels -->
+  <g font-size="12" font-weight="700" letter-spacing="2" fill="#8a8178">
+    <text x="330" y="200">BOOTHS</text>
+    <text x="760" y="226">KITCHEN</text>
+    <text x="745" y="420" transform="rotate(90 745 420)">COUNTER</text>
+    <text x="120" y="606">ENTRANCE</text>
+  </g>
+  <text x="240" y="660" font-size="11" fill="#b8c2cc">Yellow lines are power cables. The generator is outside the entrance.</text>
+
+  <!-- scale bar: 40 px = 1 m -->
+  <g transform="translate(40 652)" font-size="10" fill="#b8c2cc">
+    <rect x="0" y="0" width="50" height="7" fill="#ffffff"/><rect x="50" y="0" width="50" height="7" fill="#111111" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="0" y="-5">0</text><text x="100" y="-5" text-anchor="middle">2.5 m</text>
+  </g>
+</svg>
