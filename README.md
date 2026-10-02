@@ -5,6 +5,7 @@ eLearning samples by Feralucce Savage.
 Film production (hand-built HTML, Savage Light Studios style):
 
 - `film/pa-first-day/`: Your First Day as a PA, a branching scenario, and the PA's First-Day Card (PDF)
+- `film/call-sheet/`: Reading a Call Sheet, a job aid and micro-course, with the annotated call sheet (PDF)
 - `film/style-guide.html`: the film training style
 
 Four Articulate Rise 360 courses, exported for the web:

@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Reading a Call Sheet</title>
+<meta name="description" content="A job aid and micro-course on reading a film call sheet, with an optional part on checking a draft before it goes to the crew." />
+<link rel="stylesheet" href="../assets/sls.css" />
+<style>
+  [hidden] { display: none !important; }
+  /* the call sheet is paper: light, dense, monospace numbers */
+  .sheet { background: #f7f4ef; color: #151515; border-radius: 4px; font-size: 0.86rem; line-height: 1.4; padding: 0.9rem; margin: 1rem 0 2rem; }
+  .sheet .sec { position: relative; border: 1.5px solid #2a2a2a; border-radius: 2px; margin: 0 0 0.6rem; background: #fff; }
+  .sheet .sec > h4 { margin: 0; background: #151515; color: #fff; font-family: var(--sls-display); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.25rem 0.5rem; display: flex; justify-content: space-between; align-items: center; }
+  .sheet table { width: 100%; border-collapse: collapse; }
+  .sheet td, .sheet th { padding: 0.28rem 0.5rem; border-top: 1px solid #ddd6cc; text-align: left; vertical-align: top; }
+  .sheet th { font-family: var(--sls-display); font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: #555; border-top: 0; }
+  .sheet .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .sheet .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 0.6rem; }
+  .sheet .grid2 > .sec { margin: 0; }
+  .sheet .top { display: grid; grid-template-columns: 1.4fr 1fr; gap: 0.6rem; margin-bottom: 0.6rem; }
+  .sheet .title { font-family: var(--sls-display); font-weight: 800; font-size: 1.5rem; letter-spacing: 0.02em; line-height: 1; padding: 0.5rem 0.5rem 0.2rem; }
+  .sheet .sub { padding: 0 0.5rem 0.5rem; color: #444; }
+  .sheet .move td { background: #fff3c4; font-weight: 700; text-align: center; font-family: var(--sls-display); font-size: 0.72rem; letter-spacing: 0.08em; }
+  .sheet .draft-stamp { color: #b3261e; border: 2px solid #b3261e; padding: 0 0.4rem; font-family: var(--sls-display); font-weight: 800; letter-spacing: 0.12em; font-size: 0.8rem; transform: rotate(-4deg); display: inline-block; margin-left: 0.5rem; }
+  @media (max-width: 640px) {
+    .sheet .top { grid-template-columns: 1fr; } .sheet { padding: 0.5rem; font-size: 0.82rem; }
+    .sheet .sec { overflow-x: auto; } .sheet .sec > h4 { position: sticky; left: 0; }
+    .sheet td, .sheet th { padding: 0.25rem 0.35rem; }
+    .sheet td { white-space: nowrap; } .sheet td:last-child { white-space: normal; }
+  }
+
+  /* annotation badges (the job aid) */
+  .badge { display: none; background: var(--sls-cyan); color: #111; font-family: var(--sls-display); font-weight: 800; font-size: 0.72rem; border-radius: 999px; min-width: 1.4rem; height: 1.4rem; align-items: center; justify-content: center; }
+  .annotated .badge, html:not(.js) .badge { display: inline-flex; }
+  .key { display: none; }
+  .part1-wrap:has(.annotated) + .key, html:not(.js) .key { display: block; }
+  .key ol { padding-left: 1.6rem; }
+  .key li { margin-bottom: 0.45rem; }
+  .key li::marker { font-family: var(--sls-display); font-weight: 800; color: var(--sls-cyan); }
+
+  /* find-it */
+  html.js .tappable [data-part], html.js .tappable .sec, html.js .checkable [data-err], html.js .checkable .sec, html.js .checkable tr { cursor: pointer; }
+  html.js .tappable tr:hover td, html.js .checkable tr:hover td { background: #e8f3f9; }
+  .hit-yes td, .hit-yes { background: #d9f0e3 !important; outline: 2px solid #1f7a4d; }
+  .hit-no { outline: 2px dashed #b3261e; outline-offset: -2px; }
+  .found td, .found { background: #fde3dc !important; outline: 2px solid #b3261e; }
+
+  .taskbar { position: sticky; top: 0; z-index: 5; background: rgba(17,17,17,0.97); border: 1px solid var(--sls-line); border-radius: var(--sls-radius); padding: 0.8rem 1rem; }
+  .taskbar .role { font-family: var(--sls-display); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sls-tan); }
+  .taskbar .q { font-family: var(--sls-display); font-weight: 700; font-size: 1.05rem; margin: 0.2rem 0 0; }
+  .taskbar .fb { margin: 0.5rem 0 0; font-size: 0.95rem; }
+  .taskbar .fb.yes { color: var(--sls-cyan); }
+  .taskbar .fb.no { color: var(--sls-ember); }
+  .taskbar .row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 0.6rem; flex-wrap: wrap; }
+  .taskbar .count { font-family: var(--sls-display); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--sls-dim); text-transform: uppercase; }
+  html:not(.js) .taskbar { display: none; }
+  .js-only { display: none; } html.js .js-only { display: block; }
+  html.js .nojs { display: none; }
+  .tasklist li { margin-bottom: 0.5rem; }
+  .tasklist .ans { color: var(--sls-cyan); }
+
+  @media print {
+    @page { size: letter; margin: 0.4in; }
+    html { color-scheme: light; }
+    html, body { background: #fff !important; color: #111; }
+    .sheet .sec, .sheet .grid2 { break-inside: avoid; }
+    .key .card { background: #f4f1ec; border-color: #d7d0c8; color: #111; }
+    .key .card h3 { color: #003b5b; }
+    .sls-bar, .sls-foot, .noprint, .taskbar, .sls-hero, #part2 { display: none !important; }
+    main.sls { max-width: none; padding: 0; }
+    .sheet { margin: 0; padding: 0; background: #fff; font-size: 8.4pt; }
+    .badge { display: inline-flex !important; background: #003b5b; color: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .sheet .sec > h4, .sheet .move td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .key { display: block !important; color: #111; font-size: 8.6pt; margin-top: 0.15in; }
+    .key h2 { font-size: 13pt; margin: 0 0 0.05in; }
+    .key li { margin-bottom: 0.03in; }
+    .key h2, .key h3 { color: #003b5b; }
+    .key li::marker { color: #003b5b; }
+    .print-head { display: block !important; }
+  }
+  .print-head { display: none; font-family: var(--sls-display); margin-bottom: 0.15in; }
+  .print-head b { font-size: 16pt; font-weight: 800; }
+</style>
+</head>
+<body>
+<header class="sls-bar">
+  <a class="sls-wordmark" href="../../">Savage Light Studios</a>
+  <nav><a href="annotated-call-sheet.pdf">The job aid (PDF)</a></nav>
+</header>
+
+<main class="sls">
+  <section class="sls-hero noprint">
+    <span class="slate"><span>Day 2</span><span>Call Sheet</span><span>Take 1</span></span>
+    <h1>Reading a Call Sheet</h1>
+    <p class="lede">Your call time is one line. The rest of the sheet answers the questions you were about to ask.</p>
+    <p class="dim">About 10 minutes, plus an optional part for ADs and producers. Day 2 of <i>Last Light</i>, a non-union indie feature in the US.</p>
+    <p class="js-only"><a class="btn" href="#part1">Start</a> &nbsp; <a class="btn ghost" href="#aid" id="skip">Skip to the annotated sheet</a></p>
+  </section>
+
+  <div class="print-head"><b>Reading a Call Sheet</b> · the annotated sheet · Savage Light Studios</div>
+
+  <h2 id="part1" class="noprint">Part 1: Find it</h2>
+  <p class="noprint js-only">Eight questions people really ask on set. Tap the part of the call sheet that answers each one. If you miss, you'll learn what you tapped instead.</p>
+  <p class="nojs noprint">Eight questions people really ask on set, each with the part of the call sheet that answers it. The sheet below is shown with its sections numbered; the key follows it.</p>
+
+  <ol class="tasklist nojs noprint" id="tasks">
+    <li data-answer="crew-ge" data-role="Asked as a grip" data-yes="Grip and electric are called at 5:30, half an hour before crew call. Read your department's line, not just crew call.">"When do I need to be here?" <span class="ans">Crew calls: grip and electric, 5:30 a.m. Not crew call.</span></li>
+    <li data-answer="shoot-call" data-role="Asked by anyone" data-yes="Shooting call, 7:30. Crew call is when people arrive; shooting call is when the first shot should roll.">"When does the camera roll for the first time?" <span class="ans">Shooting call, 7:30 a.m.</span></li>
+    <li data-answer="parking" data-role="Asked as a new crew member" data-yes="West side of the basecamp lot. Park where the sheet says; neighbours notice.">"Where do I park?" <span class="ans">Locations: crew parking.</span></li>
+    <li data-answer="hospital" data-role="Asked in a hurry" data-yes="St. Agnes, 2.1 miles. Every call sheet has one; know it before you need it.">"Someone's hurt. Where's the nearest hospital?" <span class="ans">Nearest hospital.</span></li>
+    <li data-answer="scenes" data-role="Asked by Jules Marin, cast #1" data-yes="Jules is cast 1, and cast 1 is in scenes 12, 13 and 31. The cast number links the cast list to the scenes.">"Which scenes am I in today?" <span class="ans">Scenes: every row with cast 1 (12, 13, 31).</span></li>
+    <li data-answer="cast-2" data-role="Asked by the 2nd AD" data-yes="Theo Grant is WF: work finish, the last day on the film. The AD will call a picture wrap after scene 31.">"Whose last day on the film is it? We'll want applause for the picture wrap." <span class="ans">Cast: Theo Grant, status WF.</span></li>
+    <li data-answer="move move-note" data-role="Asked as a PA" data-yes="A company move to Rosie's Diner after lunch. The whole unit relocates, and PAs lock up the crossing.">"Is anything moving today?" <span class="ans">Scenes: the company move after lunch (also in the notes).</span></li>
+    <li data-answer="advance" data-role="Asked by anyone" data-yes="Tomorrow is a night shoot with showers likely. The advance schedule is how you plan tonight.">"Do I need rain gear tomorrow, and when's call?" <span class="ans">Advance schedule: Day 3, crew call 4:00 p.m., showers likely.</span></li>
+  </ol>
+
+  <div class="part1-wrap">
+  <div class="taskbar js-only noprint" id="taskbar" aria-live="polite">
+    <div class="role"></div>
+    <p class="q"></p>
+    <p class="fb"></p>
+    <div class="row"><span class="count"></span><button class="btn" type="button" id="next" hidden>Next question</button></div>
+  </div>
+
+  <!-- DAY 2 CALL SHEET -->
+  <div class="sheet tappable" id="sheet2" role="region" aria-label="Call sheet, Day 2">
+    <div class="top">
+      <div class="sec" data-what="The header: what the film is, which day of the shoot, and who's in charge. Save the production office number.">
+        <h4>Production <span class="badge">1</span></h4>
+        <div class="title">LAST LIGHT</div>
+        <div class="sub">Savage Light Studios · Day <b>2</b> of 18 · Tuesday, October 13, 2026</div>
+        <table>
+          <tr><td>Director</td><td>Avery Lin</td></tr>
+          <tr><td>Producer</td><td>Sam Ortiz</td></tr>
+          <tr><td>1st AD / 2nd AD</td><td>Chris Bell / Dana Reyes</td></tr>
+          <tr><td>Production office</td><td class="num">(555) 010-0142</td></tr>
+        </table>
+      </div>
+      <div class="sec" data-what="The day's times. Crew call is when most people start; shooting call is the first shot. Lunch is six hours after crew call. Sunrise and sunset limit every exterior.">
+        <h4>Times <span class="badge">2</span></h4>
+        <table>
+          <tr><td><b>Crew call</b></td><td class="num"><b>6:00 a.m.</b></td></tr>
+          <tr data-part="shoot-call"><td>Shooting call</td><td class="num">7:30 a.m.</td></tr>
+          <tr><td>Lunch</td><td class="num">12:00 p.m.</td></tr>
+          <tr><td>Sunrise / sunset</td><td class="num">6:58 a.m. / 6:51 p.m.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid2" style="margin-bottom:0.6rem">
+      <div class="sec" data-what="The weather. Dress for it, and look for a rain plan in the notes.">
+        <h4>Weather <span class="badge">3</span></h4>
+        <table><tr><td>Partly cloudy, 40% chance of rain after 3 p.m. · 52–64 °F</td></tr></table>
+      </div>
+      <div class="sec" data-part="hospital" data-what="The nearest emergency room, with its address and distance.">
+        <h4>Nearest hospital <span class="badge">5</span></h4>
+        <table><tr><td>St. Agnes Hospital · 1200 Elm Street · 2.1 mi · ER (555) 010-0177</td></tr></table>
+      </div>
+    </div>
+
+    <div class="sec" data-what="Where everything is: each set, basecamp and crew parking. Park where it says, not at set.">
+      <h4>Locations <span class="badge">4</span></h4>
+      <table>
+        <tr><td>Set 1</td><td>Main Street at Third Avenue (exterior)</td></tr>
+        <tr><td>Set 2</td><td>Rosie's Diner, 410 Elm Street (after lunch)</td></tr>
+        <tr><td>Basecamp</td><td>Lot on Elm Street at Main</td></tr>
+        <tr data-part="parking"><td>Crew parking</td><td>West side of the basecamp lot</td></tr>
+      </table>
+    </div>
+
+    <div class="sec" data-part="scenes" data-what="What's shooting, in order: scene number, set, day or night, page count in eighths, and the cast numbers in each scene.">
+      <h4>Scenes <span class="badge">6</span></h4>
+      <table>
+        <tr><th>Sc.</th><th>Set and description</th><th>D/N</th><th>Pages</th><th>Cast</th></tr>
+        <tr><td class="num">12</td><td>EXT. MAIN STREET: Nora waits for the bus</td><td>D</td><td class="num">1 3/8</td><td class="num">1, 3</td></tr>
+        <tr><td class="num">13</td><td>EXT. MAIN STREET: the argument</td><td>D</td><td class="num">2 2/8</td><td class="num">1, 2</td></tr>
+        <tr class="move" data-part="move"><td colspan="5">Lunch 12:00 · Company move to Set 2</td></tr>
+        <tr><td class="num">31</td><td>INT. ROSIE'S DINER: the booth</td><td>D</td><td class="num">3 1/8</td><td class="num">1, 2, 4</td></tr>
+        <tr><td class="num">32</td><td>INT. ROSIE'S DINER: the counter</td><td>D</td><td class="num">4/8</td><td class="num">4, 5</td></tr>
+        <tr><td></td><td><b>Total</b></td><td></td><td class="num"><b>7 2/8</b></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="sec" data-what="The cast list: each actor's number, character, status code and times. The number links them to the scenes.">
+      <h4>Cast <span class="badge">7</span></h4>
+      <table>
+        <tr><th>#</th><th>Actor</th><th>Character</th><th>Status</th><th>Pickup</th><th>Hair/MU</th><th>On set</th></tr>
+        <tr><td>1</td><td>Jules Marin</td><td>Nora</td><td>W</td><td class="num">5:45</td><td class="num">6:15</td><td class="num">7:15</td></tr>
+        <tr data-part="cast-2"><td>2</td><td>Theo Grant</td><td>Sam</td><td>WF</td><td>Self</td><td class="num">8:00</td><td class="num">9:00</td></tr>
+        <tr><td>3</td><td>Priya Nand</td><td>Officer Reyes</td><td>W</td><td>Self</td><td class="num">6:45</td><td class="num">7:30</td></tr>
+        <tr><td>4</td><td>Lena Brooks</td><td>Maggie</td><td>SW</td><td>Self</td><td class="num">11:30</td><td class="num">1:00 p.m.</td></tr>
+        <tr><td>5</td><td>Mo Diaz</td><td>The cook</td><td>SW</td><td>Self</td><td class="num">12:00</td><td class="num">1:30 p.m.</td></tr>
+        <tr><td>6</td><td>Ray Collins</td><td>Det. Cole</td><td>H</td><td colspan="3">On hold, not called</td></tr>
+      </table>
+    </div>
+
+    <div class="grid2" style="margin-bottom:0.6rem">
+      <div class="sec" data-what="Background extras: how many, when they arrive, where they're held and what to wear.">
+        <h4>Background <span class="badge">8</span></h4>
+        <table>
+          <tr><td>12 background · call 7:00 a.m. · holding in the catering tent</td></tr>
+          <tr><td>Bring 3 changes of fall street clothes, no logos. 6 wrap at lunch; 6 move to Set 2 as diner customers.</td></tr>
+        </table>
+      </div>
+      <div class="sec" data-what="Notes by department: what props, cars, stunts and locations need today, the rain plan, and the radio channels.">
+        <h4>Notes <span class="badge">9</span></h4>
+        <table>
+          <tr><td>Props</td><td>Nora's phone, diner menus, coffee mugs</td></tr>
+          <tr data-part="move-note"><td>Locations</td><td>Company move at lunch. PAs lock up the Elm Street crossing.</td></tr>
+          <tr><td>Picture cars / stunts</td><td>None today</td></tr>
+          <tr><td>Rain plan</td><td>If rain before lunch, move to Set 2 early</td></tr>
+          <tr><td>Radio</td><td>Ch 1 production · Ch 2 private · Ch 3 grip/electric · Ch 5 camera</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="sec" data-what="Each department's call time. Yours may be earlier than crew call.">
+        <h4>Crew calls <span class="badge">10</span></h4>
+        <table>
+          <tr><td>Locations</td><td class="num">5:00 a.m.</td></tr>
+          <tr><td>ADs and PAs</td><td class="num">5:30 a.m.</td></tr>
+          <tr data-part="crew-ge"><td>Grip and electric</td><td class="num">5:30 a.m.</td></tr>
+          <tr><td>Camera, art, props, hair and makeup, wardrobe</td><td class="num">6:00 a.m.</td></tr>
+          <tr><td>Sound</td><td class="num">6:30 a.m.</td></tr>
+          <tr><td>Catering: breakfast</td><td class="num">5:30–6:00 a.m.</td></tr>
+        </table>
+      </div>
+      <div class="sec" data-part="advance" data-what="The advance schedule: tomorrow's plan, so you can get ready tonight.">
+        <h4>Advance schedule <span class="badge">11</span></h4>
+        <table>
+          <tr><td>Day 3 · Wed, Oct 14</td><td>Night shoot: sc. 40, 41, 42</td></tr>
+          <tr><td>Crew call</td><td class="num">4:00 p.m.</td></tr>
+          <tr><td>Forecast</td><td>Showers likely, 48–58 °F. Bring rain gear.</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <!-- KEY: the job aid -->
+  <section class="key" id="aid">
+    <h2>The annotated call sheet</h2>
+    <p class="noprint">Every section, what it's for, and the question it answers. <a href="annotated-call-sheet.pdf">Download it as a PDF.</a></p>
+    <ol>
+      <li><b>Production.</b> The film, the day of the shoot (Day 2 of 18), and who's in charge. Save the production office number.</li>
+      <li><b>Times.</b> Crew call is when most people start. Shooting call is when the first shot should roll. Lunch is six hours after crew call. Sunrise and sunset limit every exterior.</li>
+      <li><b>Weather.</b> Dress for it, and look for a rain plan in the notes.</li>
+      <li><b>Locations.</b> Each set, basecamp and crew parking. Park where it says, not at set.</li>
+      <li><b>Nearest hospital.</b> Know it before you need it.</li>
+      <li><b>Scenes.</b> What's shooting, in order: scene number, set, D (day) or N (night), page count, and cast numbers. A company move means the whole unit relocates.</li>
+      <li><b>Cast.</b> Each actor's number, character, status and times. Find an actor's scenes by their number.</li>
+      <li><b>Background.</b> How many extras, their call, where they're held and what to wear.</li>
+      <li><b>Notes.</b> What each department needs today, the rain plan and the radio channels.</li>
+      <li><b>Crew calls.</b> Your department's call. It may be earlier than crew call.</li>
+      <li><b>Advance schedule.</b> Tomorrow's scenes, call and weather, so you can plan tonight.</li>
+    </ol>
+    <div class="card">
+      <h3 style="margin-top:0">Codes</h3>
+      <p style="margin:0 0 0.4rem"><b>Cast status</b>, from the AD's Day Out of Days: <b>SW</b> start work (first day) · <b>W</b> work · <b>WF</b> work finish (last day) · <b>SWF</b> start, work and finish the same day · <b>H</b> hold (paid, not working today).</p>
+      <p style="margin:0"><b>Pages in eighths:</b> a script page is eight eighths. 1 3/8 is one page and three eighths (eleven eighths). No scene counts as less than 1/8.</p>
+    </div>
+    <p class="noprint js-only" style="margin-top:1.2rem"><a class="btn" href="annotated-call-sheet.pdf">Download the PDF</a> &nbsp; <a class="btn ghost" href="#part2">Part 2: check the draft</a></p>
+  </section>
+
+  <!-- PART 2 -->
+  <section id="part2" class="noprint">
+    <span class="slate" style="margin-top:2.5rem"><span>Part 2</span><span>For ADs and producers</span><span>Optional</span></span>
+    <h2>Part 2: Check the draft</h2>
+    <p>It's 7:00 p.m. on Day 2, and you've just wrapped. The 2nd AD sends you the draft call sheet for Day 3. <b>Find the four mistakes</b> before it goes to the crew. Tap anything that looks wrong.</p>
+    <p class="dim">You'll need today's sheet above. The minimum turnaround between wrap and the next crew call is 10 hours.</p>
+
+    <div class="taskbar js-only" id="checkbar" aria-live="polite">
+      <div class="role">Draft check</div>
+      <p class="q">Found <span id="found">0</span> of 4</p>
+      <p class="fb"></p>
+    </div>
+
+    <div class="sheet checkable" id="sheet3" role="region" aria-label="Draft call sheet, Day 3">
+      <div class="top">
+        <div class="sec">
+          <h4>Production</h4>
+          <div class="title">LAST LIGHT <span class="draft-stamp">DRAFT</span></div>
+          <div class="sub">Savage Light Studios · Day <b>3</b> of 18 · Wednesday, October 14, 2026</div>
+        </div>
+        <div class="sec">
+          <h4>Times</h4>
+          <table>
+            <tr data-err="turnaround"><td><b>Crew call</b></td><td class="num"><b>4:00 a.m.</b></td></tr>
+            <tr><td>Shooting call</td><td class="num">5:30 p.m.</td></tr>
+            <tr><td>Lunch</td><td class="num">10:00 p.m.</td></tr>
+            <tr><td>Sunset</td><td class="num">6:50 p.m.</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="grid2" style="margin-bottom:0.6rem">
+        <div class="sec">
+          <h4>Locations</h4>
+          <table>
+            <tr><td>Set 1</td><td>Rosie's Diner parking lot, 410 Elm Street</td></tr>
+            <tr><td>Set 2</td><td>Old Mill Road overlook (new location)</td></tr>
+            <tr><td>Basecamp / parking</td><td>Elm Street lot, as Day 2</td></tr>
+          </table>
+        </div>
+        <div class="sec">
+          <h4>Nearest hospital</h4>
+          <table>
+            <tr><td>Set 1</td><td>St. Agnes Hospital, 2.1 mi</td></tr>
+            <tr data-err="hospital"><td>Set 2</td><td>—</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="sec">
+        <h4>Scenes</h4>
+        <table>
+          <tr><th>Sc.</th><th>Set and description</th><th>D/N</th><th>Pages</th><th>Cast</th></tr>
+          <tr><td class="num">40</td><td>EXT. DINER LOT: Nora finds the note</td><td>N</td><td class="num">2 4/8</td><td class="num">1, 3</td></tr>
+          <tr class="move"><td colspan="5">Lunch 10:00 p.m. · Company move to Set 2</td></tr>
+          <tr data-err="sunset"><td class="num">41</td><td>EXT. OLD MILL ROAD: the overlook</td><td>D</td><td class="num">1 2/8</td><td class="num">1</td></tr>
+          <tr data-err="cast4"><td class="num">42</td><td>INT. NORA'S CAR: driving</td><td>N</td><td class="num">1 6/8</td><td class="num">1, 4</td></tr>
+        </table>
+      </div>
+      <div class="sec">
+        <h4>Cast</h4>
+        <table>
+          <tr><th>#</th><th>Actor</th><th>Character</th><th>Status</th><th>Hair/MU</th><th>On set</th></tr>
+          <tr><td>1</td><td>Jules Marin</td><td>Nora</td><td>W</td><td class="num">4:30 p.m.</td><td class="num">5:15 p.m.</td></tr>
+          <tr><td>3</td><td>Priya Nand</td><td>Officer Reyes</td><td>WF</td><td class="num">4:45 p.m.</td><td class="num">5:30 p.m.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <ol class="nojs" id="errors">
+      <li data-err="turnaround"><b>Crew call is 4:00 a.m.</b> Day 2 wrapped at 7:00 p.m., so that's nine hours of turnaround, and the minimum is ten. Everything else on the sheet, and yesterday's advance schedule, says 4:00 p.m.</li>
+      <li data-err="sunset"><b>Scene 41 is a day exterior after sunset.</b> Shooting starts at 5:30 p.m. and the sun sets at 6:50, so scene 41 can't be D. It's a night scene, or it belongs on another day.</li>
+      <li data-err="cast4"><b>Scene 42 needs cast 4, but cast 4 isn't on the cast list.</b> Lena Brooks would never get a call time.</li>
+      <li data-err="hospital"><b>Set 2 has no nearest hospital.</b> It's a new location on a dark road at night. Every set needs one.</li>
+    </ol>
+    <div class="js-only">
+      <div class="callout" id="p2done" hidden><b>All four</b>A call sheet is the day's plan made public. Before it goes out, check it against the schedule, the cast list, sunrise and sunset, and yesterday's wrap.</div>
+      <p><button class="btn ghost" type="button" id="reveal">Show me the answers</button></p>
+    </div>
+  </section>
+
+  <section class="noprint" style="margin-top:3rem">
+    <h2>What you can do now</h2>
+    <ul>
+      <li>Find your own call, and tell crew call from shooting call.</li>
+      <li>Find where to go, where to park, and the nearest hospital.</li>
+      <li>Read the scenes, the cast numbers and status codes, and page counts in eighths.</li>
+      <li>Spot a company move, the rain plan, and tomorrow's call.</li>
+      <li>Check a draft against the schedule, the cast list, the sun and yesterday's wrap.</li>
+    </ul>
+    <p>More: <a href="annotated-call-sheet.pdf">the annotated call sheet (PDF)</a> · <a href="../pa-first-day/">Your First Day as a PA</a> · <a href="../../">all samples</a></p>
+  </section>
+</main>
+
+<footer class="sls-foot">© 2026 Savage Light Studios · Sample by Feralucce Savage · <i>Last Light</i> and everyone on its call sheets are fictional.</footer>
+
+<script>
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  root.classList.add("js");
+  function $(s, e) { return (e || document).querySelector(s); }
+  function $$(s, e) { return Array.prototype.slice.call((e || document).querySelectorAll(s)); }
+
+  // print mode for the PDF: ?print shows only the annotated sheet and key
+  if (/[?&]print\b/.test(location.search)) { $("#sheet2").classList.add("annotated"); return; }
+
+  // Part 1: find it
+  var tasks = $$("#tasks li").map(function (li) {
+    var q = li.cloneNode(true); var a = $(".ans", q); if (a) a.remove();
+    return { answer: li.dataset.answer.split(" "), role: li.dataset.role, q: q.textContent.trim(), yes: li.dataset.yes };
+  });
+  var sheet = $("#sheet2"), bar = $("#taskbar"), i = 0, firstTry = 0, missed = false, solved = false;
+
+  function clearMarks() { $$(".hit-yes, .hit-no", sheet).forEach(function (e) { e.classList.remove("hit-yes", "hit-no"); }); }
+  function showTask() {
+    var t = tasks[i]; clearMarks(); missed = false; solved = false;
+    $(".role", bar).textContent = t.role + " · question " + (i + 1) + " of " + tasks.length;
+    $(".q", bar).textContent = t.q;
+    $(".fb", bar).textContent = "Tap the part of the sheet that answers it.";
+    $(".fb", bar).className = "fb";
+    $(".count", bar).textContent = firstTry + " right first time";
+    $("#next").hidden = true;
+  }
+  sheet.addEventListener("click", function (e) {
+    if (solved || i >= tasks.length) return;
+    var t = tasks[i], hit = null;
+    t.answer.forEach(function (a) { hit = hit || e.target.closest('[data-part="' + a + '"]'); });
+    clearMarks();
+    if (hit) {
+      solved = true; if (!missed) firstTry++;
+      hit.classList.add("hit-yes");
+      $(".fb", bar).textContent = "Yes. " + t.yes; $(".fb", bar).className = "fb yes";
+      $(".count", bar).textContent = firstTry + " right first time";
+      $("#next").hidden = false;
+      $("#next").textContent = i === tasks.length - 1 ? "See the annotated sheet" : "Next question";
+      $("#next").focus({ preventScroll: true });
+    } else {
+      missed = true;
+      var part = e.target.closest("tr") || e.target.closest(".sec");
+      if (part) part.classList.add("hit-no");
+      var sec = e.target.closest("[data-what]");
+      $(".fb", bar).textContent = "Not that one. " + (sec ? "You tapped " + sec.dataset.what.charAt(0).toLowerCase() + sec.dataset.what.slice(1) : "") + " Try again.";
+      $(".fb", bar).className = "fb no";
+    }
+  });
+  $("#next").addEventListener("click", function () {
+    i++;
+    if (i < tasks.length) { showTask(); bar.scrollIntoView({ block: "start" }); return; }
+    clearMarks();
+    $(".role", bar).textContent = "Part 1 done";
+    $(".q", bar).textContent = firstTry + " of " + tasks.length + " right first time.";
+    $(".fb", bar).textContent = "Here's the same sheet with every section labelled. It's your job aid.";
+    $(".fb", bar).className = "fb yes";
+    $("#next").hidden = true;
+    sheet.classList.add("annotated");
+    $("#aid").scrollIntoView();
+  });
+  $("#skip").addEventListener("click", function () { sheet.classList.add("annotated"); });
+  showTask();
+
+  // Part 2: check the draft
+  var draft = $("#sheet3"), cbar = $("#checkbar"), found = {};
+  var why = {}; $$("#errors li").forEach(function (li) { why[li.dataset.err] = li.innerHTML; });
+  function mark(k) {
+    if (found[k]) return; found[k] = true;
+    $$('[data-err="' + k + '"]', draft).forEach(function (e) { e.classList.add("found"); });
+    var n = Object.keys(found).length;
+    $("#found").textContent = n;
+    if (n === 4) $("#p2done").hidden = false;
+  }
+  draft.addEventListener("click", function (e) {
+    var hit = e.target.closest("[data-err]");
+    var fb = $(".fb", cbar);
+    if (hit) { var k = hit.dataset.err, again = found[k]; mark(k); fb.innerHTML = (again ? "Already found. " : "Found one. ") + why[k]; fb.className = "fb yes"; }
+    else { fb.textContent = "That part checks out. Compare the draft with today's sheet, the sun and the 10-hour turnaround."; fb.className = "fb no"; }
+  });
+  $("#reveal").addEventListener("click", function () {
+    Object.keys(why).forEach(mark);
+    $(".fb", cbar).innerHTML = Object.keys(why).map(function (k) { return why[k]; }).join("<br>");
+    $(".fb", cbar).className = "fb yes";
+  });
+})();
+</script>
+</body>
+</html>
