@@ -1,6 +1,13 @@
 # eLearning Samples
 
-Four Articulate Rise 360 courses by Feralucce Savage, exported for the web:
+eLearning samples by Feralucce Savage.
+
+Film production (hand-built HTML, Savage Light Studios style):
+
+- `film/pa-first-day/`: Your First Day as a PA, a branching scenario, and the PA's First-Day Card (PDF)
+- `film/style-guide.html`: the film training style
+
+Four Articulate Rise 360 courses, exported for the web:
 
 - `job-aid/`: Designing a Job Aid People Actually Use (corporate learning sample)
 - `ticket-system/`: The 20 Below Ticket System

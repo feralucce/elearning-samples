@@ -1,0 +1,136 @@
+/* Savage Light Studios training style
+   Taken from savagelightstudios.com: charcoal page, black bars, cyan headings,
+   Montserrat display, Roboto text, navy blocks, tan rules, ember from the logo. */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Roboto:wght@300;400;500;600&display=swap");
+
+:root {
+  /* surfaces */
+  --sls-black: #111111;      /* header and footer bars */
+  --sls-charcoal: #222222;   /* page */
+  --sls-panel: #2c2c2c;      /* cards and choices */
+  --sls-navy: #003b5b;       /* feature blocks, primary buttons */
+  --sls-line: #4d453f;       /* tan rule at 40% on charcoal */
+
+  /* ink */
+  --sls-white: #ffffff;
+  --sls-dim: #b8c2cc;
+  --sls-cyan: #6ec1e4;       /* headings, primary accent */
+  --sls-glow: #00b4f0;       /* focus rings, highlights, the logo's glow */
+  --sls-ice: #d3e0ff;        /* links */
+  --sls-tan: #a79281;        /* eyebrows, slate labels */
+  --sls-ember: #f06a4f;      /* the logo's red: consequences, warnings, "cut" */
+
+  --sls-radius: 6px;
+  --sls-display: "Montserrat", "Segoe UI", system-ui, sans-serif;
+  --sls-text: "Roboto", "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  background: var(--sls-charcoal);
+  color: var(--sls-white);
+  font-family: var(--sls-text);
+  font-weight: 300;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--sls-ice); }
+a:hover { color: #f0f8ff; }
+:focus-visible { outline: 2px solid var(--sls-glow); outline-offset: 3px; }
+
+/* bars */
+.sls-bar {
+  background: var(--sls-black);
+  padding: 0.9rem 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.sls-wordmark {
+  font-family: var(--sls-display); font-weight: 700; font-size: 0.95rem;
+  letter-spacing: 0.02em; text-transform: uppercase; color: var(--sls-white); text-decoration: none;
+}
+.sls-bar nav a { font-family: var(--sls-display); font-weight: 500; font-size: 0.9rem; color: var(--sls-white); text-decoration: none; margin-left: 1.2rem; }
+.sls-bar nav a:hover { color: var(--sls-cyan); }
+.sls-foot { background: var(--sls-black); color: var(--sls-dim); font-size: 0.85rem; padding: 2rem 16px; text-align: center; margin-top: 4rem; }
+
+main.sls { max-width: 860px; margin: 0 auto; padding: 2.5rem 16px 2rem; }
+
+/* type */
+h1, .sls-h1 { font-family: var(--sls-display); font-weight: 800; font-size: clamp(2rem, 6vw, 3rem); line-height: 1.1; margin: 0.3rem 0 1rem; letter-spacing: -0.01em; }
+h2 { font-family: var(--sls-text); font-weight: 600; color: var(--sls-cyan); font-size: clamp(1.4rem, 4vw, 2rem); line-height: 1.2; margin: 2.6rem 0 0.8rem; }
+h3 { font-family: var(--sls-display); font-weight: 700; font-size: 1.15rem; margin: 1.6rem 0 0.5rem; }
+p { margin: 0 0 1rem; }
+.lede { font-size: 1.15rem; color: var(--sls-cyan); }
+.dim { color: var(--sls-dim); }
+
+/* slate eyebrow: scene / take label, like a clapperboard */
+.slate {
+  display: inline-flex; gap: 0; font-family: var(--sls-display); font-weight: 700;
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  border: 1px solid var(--sls-tan); border-radius: 3px; overflow: hidden;
+}
+.slate span { padding: 0.2rem 0.6rem; color: var(--sls-tan); }
+.slate span + span { border-left: 1px solid var(--sls-tan); }
+.slate span:first-child { background: var(--sls-tan); color: var(--sls-black); }
+
+/* hero with the logo's scanline glow */
+.sls-hero {
+  position: relative; overflow: hidden; border-radius: var(--sls-radius);
+  background: radial-gradient(ellipse at 25% 50%, rgba(0,180,240,0.35), transparent 60%), var(--sls-black);
+  padding: 2.5rem 1.5rem;
+}
+.sls-hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0,0,0,0.28) 0 2px, transparent 2px 4px);
+}
+.sls-hero > * { position: relative; z-index: 1; }
+
+/* blocks */
+.card { background: var(--sls-panel); border: 1px solid var(--sls-line); border-radius: var(--sls-radius); padding: 1.2rem 1.3rem; }
+.feature { background: var(--sls-navy); border-radius: var(--sls-radius); padding: 1.2rem 1.3rem; }
+.rule { border: 0; border-top: 1px solid var(--sls-line); margin: 2rem 0; }
+
+/* callouts: tip (cyan) and consequence (ember). Each carries a label, never colour alone */
+.callout { border-left: 4px solid var(--sls-cyan); background: var(--sls-panel); padding: 0.9rem 1.1rem; border-radius: 0 var(--sls-radius) var(--sls-radius) 0; margin: 1.2rem 0; }
+.callout b:first-child { font-family: var(--sls-display); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sls-cyan); display: block; margin-bottom: 0.2rem; }
+.callout.ember { border-left-color: var(--sls-ember); }
+.callout.ember b:first-child { color: var(--sls-ember); }
+
+/* buttons */
+.btn {
+  display: inline-block; font-family: var(--sls-display); font-weight: 700; font-size: 0.9rem;
+  letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; cursor: pointer;
+  border-radius: var(--sls-radius); padding: 0.7rem 1.3rem; border: 1px solid var(--sls-cyan);
+  background: var(--sls-navy); color: var(--sls-white);
+}
+.btn:hover { background: #004c75; }
+.btn.ghost { background: transparent; color: var(--sls-cyan); }
+.btn.ghost:hover { background: rgba(110,193,228,0.1); }
+
+/* branching choices */
+.choices { display: grid; gap: 0.7rem; margin: 1.2rem 0; }
+.choice {
+  text-align: left; font: inherit; font-weight: 400; color: var(--sls-white); cursor: pointer;
+  background: var(--sls-panel); border: 1px solid var(--sls-line); border-radius: var(--sls-radius);
+  padding: 0.9rem 1.1rem 0.9rem 3rem; position: relative;
+}
+.choice::before {
+  content: attr(data-key); position: absolute; left: 0.9rem; top: 0.85rem;
+  font-family: var(--sls-display); font-weight: 800; color: var(--sls-cyan);
+}
+.choice:hover { border-color: var(--sls-cyan); }
+
+/* meters (scenario scores: crew trust, schedule, safety) */
+.meters { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; }
+.meter { flex: 1 1 160px; }
+.meter label { display: flex; justify-content: space-between; font-family: var(--sls-display); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sls-dim); }
+.meter .track { height: 8px; background: var(--sls-black); border-radius: 4px; margin-top: 0.3rem; overflow: hidden; }
+.meter .fill { height: 100%; background: var(--sls-cyan); border-radius: 4px; }
+.meter.low .fill { background: var(--sls-ember); }
+
+@media (max-width: 600px) {
+  .sls-bar nav a { margin-left: 0.8rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

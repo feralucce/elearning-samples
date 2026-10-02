@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Film Training Style</title>
+<meta name="description" content="The Savage Light Studios style used for the film training samples." />
+<link rel="stylesheet" href="assets/sls.css" />
+<style>
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.8rem; }
+  .sw { border: 1px solid var(--sls-line); border-radius: var(--sls-radius); overflow: hidden; background: var(--sls-panel); }
+  .sw i { display: block; height: 64px; }
+  .sw div { padding: 0.5rem 0.7rem; font-size: 0.85rem; }
+  .sw b { font-family: var(--sls-display); font-weight: 700; display: block; }
+  .sw code { color: var(--sls-dim); }
+  .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1rem; }
+  .logo { width: 160px; height: 160px; object-fit: cover; border-radius: var(--sls-radius); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 0.5rem 0.4rem; border-bottom: 1px solid var(--sls-line); vertical-align: top; }
+  th { font-family: var(--sls-display); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sls-dim); }
+</style>
+</head>
+<body>
+<header class="sls-bar">
+  <a class="sls-wordmark" href="#">Savage Light Studios</a>
+  <nav><a href="#color">Colour</a><a href="#type">Type</a><a href="#parts">Parts</a></nav>
+</header>
+
+<main class="sls">
+  <section class="sls-hero">
+    <span class="slate"><span>Style</span><span>Film training</span><span>Take 1</span></span>
+    <h1>Film Training Style</h1>
+    <p class="lede">The look of savagelightstudios.com, set up for courses.</p>
+    <p class="dim">Charcoal and black like the site, cyan headings, the logo's glow and scanlines, and its red kept for consequences.</p>
+  </section>
+
+  <h2 id="color">Colour</h2>
+  <p>Every colour comes from the live site or the logo. Text pairs are checked against WCAG AA.</p>
+  <div class="swatches">
+    <div class="sw"><i style="background:#111111"></i><div><b>Black</b><code>#111111</code><br>Header and footer bars</div></div>
+    <div class="sw"><i style="background:#222222"></i><div><b>Charcoal</b><code>#222222</code><br>Page</div></div>
+    <div class="sw"><i style="background:#2c2c2c"></i><div><b>Panel</b><code>#2C2C2C</code><br>Cards and choices</div></div>
+    <div class="sw"><i style="background:#003b5b"></i><div><b>Navy</b><code>#003B5B</code><br>Buttons, feature blocks</div></div>
+    <div class="sw"><i style="background:#6ec1e4"></i><div><b>Cyan</b><code>#6EC1E4</code><br>Headings, accent · 7.9:1</div></div>
+    <div class="sw"><i style="background:#00b4f0"></i><div><b>Glow</b><code>#00B4F0</code><br>Focus, highlights · 6.7:1</div></div>
+    <div class="sw"><i style="background:#d3e0ff"></i><div><b>Ice</b><code>#D3E0FF</code><br>Links · 12:1</div></div>
+    <div class="sw"><i style="background:#a79281"></i><div><b>Tan</b><code>#A79281</code><br>Slates, rules · 5.4:1</div></div>
+    <div class="sw"><i style="background:#f06a4f"></i><div><b>Ember</b><code>#F06A4F</code><br>Consequences · 5.2:1</div></div>
+  </div>
+  <p class="dim" style="margin-top:0.8rem">Ratios are on charcoal. Ember is the logo's red, lifted slightly so it reads as text. It always comes with a label, never colour alone.</p>
+
+  <h2 id="type">Type</h2>
+  <div class="two">
+    <div class="card">
+      <span class="slate"><span>Display</span><span>Montserrat 700–800</span></span>
+      <h1 style="margin-top:0.8rem">Call Time Is 6 A.M.</h1>
+      <h3>Lesson and section titles</h3>
+      <p class="dim">The site's menu and page titles. Used for titles, buttons and labels.</p>
+    </div>
+    <div class="card">
+      <span class="slate"><span>Text</span><span>Roboto 300–600</span></span>
+      <h2 style="margin-top:0.8rem">Heading in cyan, Roboto 600</h2>
+      <p>Body text is Roboto Light on charcoal, as on the site's home page. It stays white for reading; cyan is for headings and the lede.</p>
+    </div>
+  </div>
+
+  <h2>Logo</h2>
+  <div class="two">
+    <div class="card" style="display:flex;gap:1rem;align-items:center">
+      <img class="logo" src="https://savagelightstudios.com/wp-content/uploads/2025/09/sls-logo-grey-768x768.jpg" alt="Savage Light Studios logo: a glowing cyan handprint behind distressed lettering" />
+      <p class="dim" style="margin:0">The glowing hand on black. On course pages it sits on the title screen only; the black bar carries the wordmark.</p>
+    </div>
+    <div class="card">
+      <p class="sls-wordmark" style="margin:0 0 0.6rem">Savage Light Studios</p>
+      <p class="dim" style="margin:0">Wordmark: Montserrat 700, uppercase, white, as in the site header.</p>
+    </div>
+  </div>
+
+  <h2 id="parts">Course parts</h2>
+
+  <h3>Slate</h3>
+  <p>A clapperboard label that marks each lesson's scene and take.</p>
+  <span class="slate"><span>Scene 3</span><span>The Lockup</span><span>Take 1</span></span>
+
+  <h3>Buttons</h3>
+  <p><a class="btn" href="#">Start the day</a> &nbsp; <a class="btn ghost" href="#">Review the call sheet</a></p>
+
+  <h3>Choices (branching scenario)</h3>
+  <div class="choices">
+    <button class="choice" data-key="A">Hold the pedestrians at the corner until you hear "cut".</button>
+    <button class="choice" data-key="B">Wave them through quickly; it's only a few seconds of the shot.</button>
+  </div>
+
+  <h3>Callouts</h3>
+  <div class="callout"><b>On set</b>"Copy" means you heard and understood. Say it every time.</div>
+  <div class="callout ember"><b>Consequence</b>The take is ruined and the AD asks who held that corner.</div>
+
+  <h3>Meters</h3>
+  <div class="card meters">
+    <div class="meter"><label>Crew trust <span>80</span></label><div class="track"><div class="fill" style="width:80%"></div></div></div>
+    <div class="meter"><label>Schedule <span>65</span></label><div class="track"><div class="fill" style="width:65%"></div></div></div>
+    <div class="meter low"><label>Safety <span>30 · low</span></label><div class="track"><div class="fill" style="width:30%"></div></div></div>
+  </div>
+
+  <h3>Feature block</h3>
+  <div class="feature"><b>What you'll practise:</b> locking up a shot, radio etiquette, and stopping work when something's unsafe.</div>
+
+  <hr class="rule" />
+  <table>
+    <tr><th>Use</th><th>Do</th><th>Don't</th></tr>
+    <tr><td>Ember</td><td>Consequences, safety, "cut"</td><td>Decoration or links</td></tr>
+    <tr><td>Cyan</td><td>Headings, accent, active choice</td><td>Long body text</td></tr>
+    <tr><td>Scanlines</td><td>Title screens and heroes</td><td>Behind reading text</td></tr>
+  </table>
+</main>
+
+<footer class="sls-foot">© 2026 Savage Light Studios · Training samples by Feralucce Savage</footer>
+</body>
+</html>

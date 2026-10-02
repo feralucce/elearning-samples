@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PA First-Day Card</title>
+<meta name="description" content="A one-page job aid for a production assistant's first day on a film set." />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  /* Print version of the Savage Light Studios style: white page to save ink,
+     navy replaces cyan for text so it holds contrast on paper. */
+  :root {
+    --ink: #111111; --dim: #4a4f55; --navy: #003b5b; --cyan: #2a8db8; --ember: #c2411f;
+    --tan: #8a7564; --line: #d7d0c8; --paper: #ffffff;
+    --display: "Montserrat", "Segoe UI", sans-serif; --text: "Roboto", "Segoe UI", sans-serif;
+  }
+  @page { size: letter; margin: 0.45in; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #e9e9e9; color: var(--ink); font-family: var(--text); font-size: 10.6pt; line-height: 1.4; }
+  .sheet { background: var(--paper); width: 7.6in; min-height: 10.1in; margin: 16px auto; padding: 0; }
+  header { background: #111111; color: #fff; padding: 0.16in 0.22in; display: flex; justify-content: space-between; align-items: center; }
+  header .brand { font-family: var(--display); font-weight: 700; font-size: 8pt; letter-spacing: 0.08em; text-transform: uppercase; }
+  header .slate { font-family: var(--display); font-weight: 700; font-size: 7pt; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid #a79281; border-radius: 2px; display: flex; }
+  header .slate span { padding: 2px 6px; color: #a79281; }
+  header .slate span:first-child { background: #a79281; color: #111; }
+  header .slate span + span { border-left: 1px solid #a79281; }
+  .body { padding: 0.18in 0.22in 0.1in; }
+  h1 { font-family: var(--display); font-weight: 800; font-size: 24pt; line-height: 1.05; margin: 0 0 3px; }
+  .lede { color: var(--navy); font-size: 10.5pt; margin: 0 0 0.12in; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.16in 0.2in; }
+  section { border-top: 2px solid var(--navy); padding-top: 5px; break-inside: avoid; }
+  section.ember { border-top-color: var(--ember); }
+  h2 { font-family: var(--display); font-weight: 700; font-size: 9pt; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); margin: 0 0 5px; }
+  section.ember h2 { color: var(--ember); }
+  ul { margin: 0; padding-left: 1.05em; }
+  li { margin: 0 0 2px; }
+  table { border-collapse: collapse; width: 100%; }
+  td { padding: 2px 4px 2px 0; vertical-align: top; border-bottom: 1px solid var(--line); }
+  td:first-child { font-weight: 700; white-space: nowrap; padding-right: 8px; }
+  .script { background: #eef4f8; border-left: 3px solid var(--navy); padding: 5px 8px; margin: 4px 0 5px; font-style: italic; }
+  .checks li { list-style: none; position: relative; padding-left: 2px; }
+  .checks { padding-left: 1.2em; }
+  .checks li::before { content: ""; position: absolute; left: -1.15em; top: 0.22em; width: 0.75em; height: 0.75em; border: 1.3px solid var(--ink); border-radius: 2px; }
+  .mapbox { grid-column: 1 / -1; display: grid; grid-template-columns: 1.55fr 1fr; gap: 0.16in; align-items: center; border-top: 2px solid var(--navy); padding-top: 6px; }
+  .mapbox svg { width: 100%; height: auto; display: block; }
+  footer { color: var(--dim); font-size: 7.5pt; padding: 0.06in 0.22in 0.14in; display: flex; justify-content: space-between; }
+  @media print {
+    body { background: none; }
+    .sheet { margin: 0; width: auto; min-height: 0; }
+    header, .script { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @media (max-width: 700px) {
+    .sheet { width: auto; margin: 0; }
+    .grid, .mapbox { grid-template-columns: 1fr; }
+    body { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header>
+    <span class="brand">Savage Light Studios</span>
+    <span class="slate"><span>Job aid</span><span>Day 1</span><span>Keep it</span></span>
+  </header>
+  <div class="body">
+    <h1>The PA's First-Day Card</h1>
+    <p class="lede">Everything from "Your First Day as a PA" on one page. Fold it into your back pocket.</p>
+
+    <div class="grid">
+      <section>
+        <h2>Before call</h2>
+        <ul>
+          <li>Your call time is on <b>your line</b> of the call sheet. PAs are often earlier than general crew call.</li>
+          <li>Arrive 15 minutes early. Early is on time.</li>
+          <li>Find the <b>nearest hospital</b> on the sheet before you need it.</li>
+          <li>Sign in with the key PA and ask where they want you.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Radio</h2>
+        <table>
+          <tr><td>Go for [name]</td><td>How you answer when called</td></tr>
+          <tr><td>Copy</td><td>I heard and understood</td></tr>
+          <tr><td>Flying in</td><td>On my way</td></tr>
+          <tr><td>Go to 2</td><td>Switch channels for a longer talk</td></tr>
+          <tr><td>What's your 20?</td><td>Where are you?</td></tr>
+          <tr><td>10-1</td><td>Bathroom break</td></tr>
+        </table>
+        <p style="margin:3px 0 0">Channel 1 is production. Keep it to one sentence.</p>
+      </section>
+
+      <section>
+        <h2>The lockup</h2>
+        <p style="margin:0">When someone wants through while you're rolling:</p>
+        <div class="script">"We're rolling right now. It'll be about a minute. Thanks so much for waiting."</div>
+        <ul>
+          <li>A lockup is a request. <b>Never touch anyone.</b></li>
+          <li>Echo "rolling" and "cut" on the radio.</li>
+          <li>Let them through on "cut", and thank them.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Who you work for</h2>
+        <ul>
+          <li>You work for the <b>ADs</b>. Take direction from the 2nd AD and the key PA.</li>
+          <li>Other departments' gear is theirs. Don't touch it unless they ask and show you how.</li>
+          <li>Messages for the director go <b>through the ADs</b>.</li>
+          <li>Made a mistake? Own it in one sentence and say what you'll do next time.</li>
+        </ul>
+      </section>
+
+      <section class="ember">
+        <h2>Safety: call it first</h2>
+        <ul>
+          <li>Anyone on set can call a hold for safety. <b>Call it, then fix it.</b></li>
+          <li>On channel 1: "Hold the roll, [what and where]."</li>
+          <li>A lost minute is cheap. An injury stops the shoot.</li>
+          <li>After a near miss, tell the truth fast.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Before you leave</h2>
+        <ul class="checks">
+          <li>Walkie and earpiece back to the key PA</li>
+          <li>Cones and signs picked up from your post</li>
+          <li>Tomorrow's call sheet in hand</li>
+          <li>Signed out with the key PA</li>
+        </ul>
+      </section>
+
+      <div class="mapbox">
+        <svg viewBox="0 0 520 210" role="img" aria-labelledby="mt md" font-family="Montserrat, sans-serif">
+          <title id="mt">Where to stand on a lockup</title>
+          <desc id="md">A small overhead map. The camera points down the sidewalk at an actor. The frame widens away from the camera, and the actor's eyeline runs back past the lens. The good spot is at the corner, behind the camera, outside the frame and the eyeline, with a view of people approaching.</desc>
+          <rect width="520" height="210" fill="#ffffff"/>
+          <g fill="#f1ede8" stroke="#8a7564" stroke-width="1.5">
+            <rect x="0" y="0" width="80" height="62"/><rect x="130" y="0" width="390" height="62"/>
+            <rect x="0" y="160" width="80" height="50"/><rect x="130" y="160" width="390" height="50"/>
+          </g>
+          <path d="M0 92H80 M130 92H520 M0 132H80 M130 132H520" stroke="#8a7564" stroke-width="1" opacity="0.7"/>
+          <path d="M196 77 L520 10 L520 140 Z" fill="#2a8db8" fill-opacity="0.12" stroke="#2a8db8" stroke-width="1.8" stroke-dasharray="7 5"/>
+          <path d="M380 77 L186 64 L186 92 Z" fill="#2a8db8" fill-opacity="0.18"/>
+          <line x1="380" y1="77" x2="205" y2="84" stroke="#003b5b" stroke-width="1.8" stroke-dasharray="1.5 4" stroke-linecap="round"/>
+          <path d="M104 6 V58 Q104 77 118 77" fill="none" stroke="#111" stroke-width="1.4" stroke-dasharray="4 4"/>
+          <rect x="176" y="69" width="16" height="15" rx="2" fill="#fff" stroke="#003b5b" stroke-width="2"/><path d="M192 72 L200 69 L200 84 L192 81Z" fill="#003b5b"/>
+          <circle cx="380" cy="77" r="7" fill="#003b5b"/>
+          <circle cx="130" cy="77" r="11" fill="#003b5b"/><text x="130" y="81.5" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">✓</text>
+          <g font-size="9" font-weight="700" letter-spacing="0.8" fill="#111">
+            <text x="184" y="106" text-anchor="middle">CAMERA</text>
+            <text x="380" y="62" text-anchor="middle">ACTOR</text>
+            <text x="440" y="122" fill="#2a8db8">FRAME</text>
+            <text x="270" y="75" fill="#003b5b">EYELINE</text>
+            <text x="130" y="112" text-anchor="middle">YOU</text>
+          </g>
+        </svg>
+        <div>
+          <h2>Where to stand</h2>
+          <ul>
+            <li><b>Out of frame:</b> if you can see the lens, it may see you.</li>
+            <li><b>Out of the eyeline:</b> never where the actor looks, and don't watch them during a take.</li>
+            <li><b>Eyes on the approach,</b> so you see people before they reach the shot.</li>
+            <li>Not sure? Ask "Am I clear?"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><span>Savage Light Studios · Training sample by Feralucce Savage</span><span>For a non-union indie feature in the US. Your set may differ: your AD has the final word.</span></footer>
+</div>
+</body>
+</html>

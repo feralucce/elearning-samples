@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" role="img" aria-labelledby="t d" font-family="Montserrat, 'Segoe UI', sans-serif">
+  <title id="t">The picture car map</title>
+  <desc id="d">Top-down map of Main Street during the picture car rehearsal. The car is at its end mark by the north kerb and is backing east to its first mark. The lane it reverses along is a keep-clear zone, and the area behind the car is the driver's blind spot. The camera and video village are on the south side, and the car body blocks their view east. Background extras are held on the north sidewalk, where you are standing. One extra has stepped off the kerb into the car's path, inside the blind spot.</desc>
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#2f2f2f" stroke-width="1"/>
+    </pattern>
+    <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#3a342f" stroke-width="2"/>
+    </pattern>
+    <pattern id="emberhatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#f06a4f" stroke-width="1.5" stroke-opacity="0.45"/>
+    </pattern>
+    <marker id="arrowember" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#f06a4f"/>
+    </marker>
+    <clipPath id="mapclip"><rect x="40" y="40" width="920" height="600"/></clipPath>
+  </defs>
+
+  <rect x="0" y="0" width="1000" height="760" fill="#111111"/>
+  <rect x="40" y="40" width="920" height="600" fill="#1a1a1a"/>
+  <rect x="40" y="40" width="920" height="600" fill="url(#grid)"/>
+
+  <g clip-path="url(#mapclip)">
+    <!-- buildings -->
+    <g fill="url(#hatch)" stroke="#a79281" stroke-width="3">
+      <rect x="40" y="40" width="300" height="170"/>
+      <rect x="340" y="40" width="330" height="170"/>
+      <rect x="670" y="40" width="290" height="170"/>
+      <rect x="40" y="500" width="920" height="140"/>
+    </g>
+    <path d="M40 270H960 M40 440H960" stroke="#a79281" stroke-width="2" opacity="0.7"/>
+    <path d="M40 355H960" stroke="#6b6158" stroke-width="2" stroke-dasharray="18 14"/>
+
+    <!-- car path: keep clear -->
+    <rect x="470" y="276" width="490" height="74" fill="#f06a4f" fill-opacity="0.06" stroke="#f06a4f" stroke-width="2.5" stroke-dasharray="8 6"/>
+    <!-- blind spot behind the reversing car -->
+    <path d="M622 290 L800 276 L800 350 L622 336 Z" fill="url(#emberhatch)"/>
+    <text x="712" y="368" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1" fill="#f06a4f">DRIVER'S BLIND SPOT</text>
+
+    <!-- marks -->
+    <g stroke="#a79281" stroke-width="3"><path d="M492 280V346 M900 280V346"/></g>
+    <g font-size="10" font-weight="700" letter-spacing="1" fill="#a79281" text-anchor="middle">
+      <text x="512" y="372">END MARK</text>
+      <text x="900" y="388">FIRST MARK</text>
+    </g>
+
+    <!-- the car (front faces west), reversing east -->
+    <g>
+      <rect x="500" y="290" width="122" height="46" rx="10" fill="#2c2c2c" stroke="#ffffff" stroke-width="2.5"/>
+      <rect x="522" y="296" width="30" height="34" rx="4" fill="none" stroke="#b8c2cc" stroke-width="1.5"/>
+      <rect x="575" y="296" width="30" height="34" rx="4" fill="none" stroke="#b8c2cc" stroke-width="1.5"/>
+      <text x="561" y="318" text-anchor="middle" font-size="9" font-weight="800" letter-spacing="1" fill="#ffffff">CAR</text>
+    </g>
+    <path d="M630 313 H880" stroke="#f06a4f" stroke-width="2.5" marker-end="url(#arrowember)"/>
+    <text x="882" y="340" text-anchor="end" font-size="11" fill="#f06a4f">reversing to first mark</text>
+
+    <!-- background holding on the north sidewalk -->
+    <rect x="640" y="218" width="230" height="46" fill="none" stroke="#a79281" stroke-width="2" stroke-dasharray="3 5"/>
+    <text x="755" y="232" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1" fill="#a79281">BACKGROUND HOLDING</text>
+    <g fill="#d3e0ff"><circle cx="680" cy="250" r="6"/><circle cx="705" cy="248" r="6"/><circle cx="790" cy="250" r="6"/><circle cx="815" cy="247" r="6"/><circle cx="845" cy="251" r="6"/></g>
+
+    <!-- the extra in the path -->
+    <circle cx="745" cy="300" r="14" fill="none" stroke="#f06a4f" stroke-width="2.5"/>
+    <circle cx="745" cy="300" r="7" fill="#d3e0ff"/>
+    <path d="M745 286 V258" stroke="#d3e0ff" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <text x="766" y="292" font-size="11" font-weight="700" fill="#ffffff">Extra off the kerb</text>
+
+    <!-- you -->
+    <circle cx="610" cy="242" r="15" fill="#111111" stroke="#ffffff" stroke-width="2.5"/>
+    <text x="610" y="247" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff">YOU</text>
+
+    <!-- camera on the south side, looking north-west at the end mark -->
+    <path d="M430 420 L330 270 L560 270 Z" fill="#6ec1e4" fill-opacity="0.10" stroke="#6ec1e4" stroke-width="2.5" stroke-dasharray="10 7"/>
+    <g transform="translate(430 432) rotate(-90)">
+      <rect x="-16" y="-11" width="26" height="22" rx="3" fill="#2c2c2c" stroke="#6ec1e4" stroke-width="2.5"/>
+      <path d="M10 -7 L22 -12 L22 12 L10 7 Z" fill="#6ec1e4"/>
+    </g>
+    <text x="458" y="436" font-size="12" font-weight="700" letter-spacing="1.5" fill="#6ec1e4">CAMERA</text>
+    <rect x="160" y="452" width="120" height="40" fill="#222222" stroke="#a79281" stroke-width="2"/>
+    <text x="220" y="477" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.5" fill="#a79281">VIDEO VILLAGE</text>
+    <text x="440" y="470" font-size="11" fill="#b8c2cc">The car blocks camera's view east</text>
+
+    <text x="250" y="400" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="3" fill="#8a8178">MAIN STREET</text>
+  </g>
+
+  <!-- compass -->
+  <g transform="translate(925 700)" font-size="12" font-weight="700" fill="#b8c2cc" text-anchor="middle">
+    <circle r="20" fill="#111111" stroke="#4d453f" stroke-width="2"/>
+    <path d="M0 -14 L6 4 L0 0 L-6 4 Z" fill="#b8c2cc"/>
+    <text y="-26">N</text>
+  </g>
+
+  <!-- scale bar: 20 px = 1 m -->
+  <g transform="translate(40 672)" font-size="11" fill="#b8c2cc">
+    <rect x="0" y="0" width="50" height="8" fill="#ffffff"/>
+    <rect x="50" y="0" width="50" height="8" fill="#111111" stroke="#ffffff" stroke-width="1.5"/>
+    <rect x="100" y="0" width="50" height="8" fill="#ffffff"/>
+    <rect x="150" y="0" width="50" height="8" fill="#111111" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="0" y="-6">0</text><text x="100" y="-6" text-anchor="middle">5 m</text><text x="200" y="-6" text-anchor="middle">10 m</text>
+    <text x="200" y="26" text-anchor="middle">≈ 33 ft</text>
+  </g>
+
+  <!-- key -->
+  <g transform="translate(300 668)" font-size="12" fill="#b8c2cc">
+    <rect x="0" y="-4" width="30" height="16" fill="#f06a4f" fill-opacity="0.08" stroke="#f06a4f" stroke-width="2" stroke-dasharray="6 4"/><text x="38" y="8">Car path: keep clear</text>
+    <rect x="180" y="-4" width="30" height="16" fill="url(#emberhatch)" stroke="#f06a4f" stroke-width="1"/><text x="218" y="8">Blind spot</text>
+    <path d="M310 4 H340" stroke="#6ec1e4" stroke-width="2.5" stroke-dasharray="10 7"/><text x="348" y="8">Camera frame</text>
+    <circle cx="470" cy="4" r="7" fill="#d3e0ff"/><text x="484" y="8">Extra</text>
+    <text x="0" y="40" font-size="11">Hazards in ember, always labelled. Not to scale for people.</text>
+  </g>
+</svg>

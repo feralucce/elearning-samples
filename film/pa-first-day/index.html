@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Your First Day as a PA</title>
+<meta name="description" content="A branching scenario for a production assistant's first day on a film set: call time, the radio, the lockup, chain of command, safety and wrap." />
+<link rel="stylesheet" href="../assets/sls.css" />
+<link rel="stylesheet" href="../assets/scenario.css" />
+</head>
+<body>
+<header class="sls-bar">
+  <a class="sls-wordmark" href="../../">Savage Light Studios</a>
+  <nav><a href="pa-first-day-card.pdf">The card (PDF)</a></nav>
+</header>
+
+<div class="meterbar" aria-label="Your meters">
+  <div class="meters">
+    <div class="meter"><label><span class="crew-label"><span class="crew">Crew </span>trust</span> <span class="v">50</span></label><div class="track"><div class="fill" style="width:50%"></div></div></div>
+    <div class="meter"><label>Schedule <span class="v">50</span></label><div class="track"><div class="fill" style="width:50%"></div></div></div>
+    <div class="meter"><label>Safety <span class="v">50</span></label><div class="track"><div class="fill" style="width:50%"></div></div></div>
+  </div>
+</div>
+<p id="live" class="visually-hidden" aria-live="polite" style="position:absolute;left:-9999px"></p>
+
+<main class="sls">
+  <p class="nojs callout"><b>Reading without JavaScript</b>The scenario is shown as a script. Every choice is listed with what happens, the best answer is marked, and the meter changes are in brackets as crew trust, schedule, safety.</p>
+
+  <!-- TITLE -->
+  <section class="beat" id="title">
+    <div class="sls-hero">
+      <span class="slate"><span>Day 1</span><span>Ext. Street</span><span>Take 1</span></span>
+      <h1>Your First Day as a PA</h1>
+      <p class="lede">Call time is 6 a.m. Nobody's going to explain twice.</p>
+      <p class="dim">A branching scenario, about 15 minutes. A non-union indie feature in the US.</p>
+      <p class="js-only"><button class="btn" type="button" data-go="briefing">Start the day</button></p>
+    </div>
+  </section>
+
+  <!-- BRIEFING -->
+  <section class="beat" id="briefing">
+    <span class="slate"><span>Briefing</span><span>Before call</span></span>
+    <h2>How today works</h2>
+    <div class="feature"><b>What you'll practise:</b> reading a call sheet, talking on the radio, holding a lockup, standing clear of the frame and the actors' eyelines, knowing who you work for, calling a safety hold, and wrapping out.</div>
+    <p style="margin-top:1rem">You'll make the calls a new production assistant makes on a real shooting day. Three meters track how it's going:</p>
+    <ul>
+      <li><b>Crew trust:</b> would they work with you again?</li>
+      <li><b>Schedule:</b> did you help the day run on time?</li>
+      <li><b>Safety:</b> did everyone go home in one piece? Low safety decides your ending on its own.</li>
+    </ul>
+    <p>You can't get fired. Mistakes get corrected, like on a real set. There's a debrief at the end, and a card to keep.</p>
+    <p class="js-only"><button class="btn" type="button" data-go="s1">Go to set</button></p>
+  </section>
+
+  <!-- SCENE 1 -->
+  <section class="beat" id="s1" data-next="s1h" data-title="Call time">
+    <span class="slate"><span>Scene 1</span><span>Call Time</span><span>5:40 a.m.</span></span>
+    <h2>Call time</h2>
+    <p class="scene-text">The call sheet came by email last night. You skimmed it.</p>
+    <div class="callsheet" role="group" aria-label="Call sheet, Day 1">
+      <h4>Call sheet · Day 1 of 18 · "Last Light"</h4>
+      <table>
+        <tr><td>General crew call</td><td>6:00 a.m.</td></tr>
+        <tr class="mine"><td>Production assistants</td><td>5:30 a.m. · report to key PA (Marco)</td></tr>
+        <tr><td>Basecamp</td><td>Lot on Elm Street at Main</td></tr>
+        <tr><td>Crew parking</td><td>West side of the basecamp lot</td></tr>
+        <tr><td>Set</td><td>Main Street at Third Avenue (2 blocks east)</td></tr>
+        <tr><td>Nearest hospital</td><td>St. Agnes Hospital, 1200 Elm Street, 2.1 mi</td></tr>
+        <tr><td>Weather</td><td>Clear, 54–71 °F, sunset 6:52 p.m.</td></tr>
+        <tr><td>Scenes</td><td>12, 13 (ext. street, day) · 27 (picture car)</td></tr>
+      </table>
+    </div>
+    <figure class="map"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" role="img" aria-labelledby="basecamp-t basecamp-d" font-family="Montserrat, 'Segoe UI', sans-serif">
+  <title id="basecamp-t">The basecamp map</title>
+  <desc id="basecamp-d">Top-down map of basecamp, a lot on Elm Street two blocks from set. Crew parking is on the west side. In basecamp: the camera truck, the grip and electric truck, and the generator along the north edge, with a keep-clear zone round the generator; the hair and makeup trailer, wardrobe, and the production trailer in the middle row; the honeywagon and the catering tent in the south row. The sign-in table, where you start, is by the lot exit at the south-east corner. Your route to deliver sides runs from sign-in to the hair and makeup door. The walk to set leaves the lot and heads east along Main Street.</desc>
+  <defs>
+    <pattern id="basecamp-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#2f2f2f" stroke-width="1"/>
+    </pattern>
+    <pattern id="basecamp-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#3a342f" stroke-width="2"/>
+    </pattern>
+    <marker id="basecamp-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#ffffff"/>
+    </marker>
+    <marker id="basecamp-arrowglow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#00b4f0"/>
+    </marker>
+    <clipPath id="basecamp-mapclip"><rect x="40" y="40" width="920" height="600"/></clipPath>
+  </defs>
+
+  <rect x="0" y="0" width="1000" height="760" fill="#111111"/>
+  <rect x="40" y="40" width="920" height="600" fill="#1a1a1a"/>
+  <rect x="40" y="40" width="920" height="600" fill="url(#basecamp-grid)"/>
+
+  <g clip-path="url(#basecamp-mapclip)">
+    <!-- Main Street along the south edge -->
+    <path d="M40 500H960 M40 640H960" stroke="#a79281" stroke-width="2" opacity="0.7"/>
+    <path d="M40 570H960" stroke="#6b6158" stroke-width="2" stroke-dasharray="18 14"/>
+    <!-- lot boundary and the split between parking and basecamp -->
+    <rect x="52" y="52" width="896" height="436" fill="none" stroke="#a79281" stroke-width="2" stroke-dasharray="3 5" opacity="0.8"/>
+    <path d="M300 52V488" stroke="#a79281" stroke-width="2" opacity="0.6"/>
+
+    <!-- crew parking stalls -->
+    <g stroke="#4d453f" stroke-width="2">
+      <path d="M60 110H150 M60 170H150 M60 230H150 M60 290H150 M60 350H150 M60 410H150"/>
+      <path d="M200 110H290 M200 170H290 M200 230H290 M200 290H290 M200 350H290 M200 410H290"/>
+    </g>
+    <text x="175" y="460" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="2" fill="#8a8178">CREW PARKING</text>
+
+    <!-- generator keep-clear zone -->
+    <rect x="852" y="62" width="90" height="98" fill="#f06a4f" fill-opacity="0.08" stroke="#f06a4f" stroke-width="2.5" stroke-dasharray="8 6"/>
+    <text x="897" y="180" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1" fill="#f06a4f">KEEP CLEAR</text>
+
+    <!-- vehicles and trailers -->
+    <g fill="#222222" stroke="#a79281" stroke-width="2.5">
+      <rect x="330" y="70" width="210" height="62" rx="4"/>
+      <rect x="570" y="70" width="250" height="62" rx="4"/>
+      <rect x="868" y="80" width="58" height="56" rx="4"/>
+      <rect x="330" y="215" width="220" height="74" rx="6"/>
+      <rect x="580" y="215" width="160" height="74" rx="6"/>
+      <rect x="770" y="215" width="170" height="74" rx="6"/>
+      <rect x="330" y="360" width="170" height="64" rx="6"/>
+    </g>
+    <!-- catering tent with tables -->
+    <rect x="540" y="340" width="220" height="110" fill="url(#basecamp-hatch)" stroke="#a79281" stroke-width="2.5" stroke-dasharray="10 5"/>
+    <g fill="none" stroke="#a79281" stroke-width="2">
+      <rect x="560" y="400" width="60" height="22"/><rect x="680" y="400" width="60" height="22"/>
+    </g>
+    <!-- cab ends on the trucks -->
+    <g fill="#a79281"><rect x="530" y="80" width="10" height="42"/><rect x="810" y="80" width="10" height="42"/></g>
+    <!-- trailer doors -->
+    <g stroke="#ffffff" stroke-width="3"><path d="M430 289H460 M650 289H675 M845 289H870"/></g>
+
+    <g font-size="12" font-weight="700" letter-spacing="1.2" fill="#ffffff" text-anchor="middle">
+      <text x="430" y="106">CAMERA TRUCK</text>
+      <text x="690" y="106">GRIP &amp; ELECTRIC</text>
+      <text x="897" y="113" font-size="10">GENNY</text>
+      <text x="440" y="250" fill="#6ec1e4">HAIR &amp; MAKEUP</text>
+      <text x="440" y="268" font-size="10" font-weight="500" fill="#b8c2cc">Jules is in here</text>
+      <text x="660" y="257">WARDROBE</text>
+      <text x="855" y="257">PRODUCTION</text>
+      <text x="415" y="397">HONEYWAGON</text>
+      <text x="650" y="380">CATERING</text>
+    </g>
+
+    <!-- sign-in table -->
+    <rect x="800" y="420" width="100" height="26" fill="#2c2c2c" stroke="#a79281" stroke-width="2"/>
+    <text x="850" y="438" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1" fill="#a79281">SIGN-IN</text>
+
+    <!-- your route: sides to makeup -->
+    <path d="M820 400 V330 H460 V300" fill="none" stroke="#00b4f0" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round" marker-end="url(#basecamp-arrowglow)"/>
+    <text x="640" y="322" text-anchor="middle" font-size="11" fill="#00b4f0">Sides to makeup</text>
+
+    <!-- walk to set -->
+    <path d="M930 440 V530 H950" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#basecamp-arrow)"/>
+    <text x="912" y="550" text-anchor="end" font-size="11" fill="#ffffff">To set: 2 blocks east</text>
+
+    <!-- you -->
+    <circle cx="820" cy="400" r="15" fill="#111111" stroke="#ffffff" stroke-width="2.5"/>
+    <text x="820" y="405" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff">YOU</text>
+
+    <!-- street names -->
+    <g font-size="13" font-weight="700" letter-spacing="3" fill="#8a8178">
+      <text x="420" y="610" text-anchor="middle">MAIN STREET</text>
+    </g>
+    <text x="60" y="545" font-size="11" fill="#b8c2cc">← Nearest hospital: St. Agnes, 2.1 mi (it's on the call sheet)</text>
+  </g>
+
+  <!-- compass -->
+  <g transform="translate(925 700)" font-size="12" font-weight="700" fill="#b8c2cc" text-anchor="middle">
+    <circle r="20" fill="#111111" stroke="#4d453f" stroke-width="2"/>
+    <path d="M0 -14 L6 4 L0 0 L-6 4 Z" fill="#b8c2cc"/>
+    <text y="-26">N</text>
+  </g>
+
+  <!-- scale bar: 20 px = 1 m -->
+  <g transform="translate(40 672)" font-size="11" fill="#b8c2cc">
+    <rect x="0" y="0" width="50" height="8" fill="#ffffff"/>
+    <rect x="50" y="0" width="50" height="8" fill="#111111" stroke="#ffffff" stroke-width="1.5"/>
+    <rect x="100" y="0" width="50" height="8" fill="#ffffff"/>
+    <rect x="150" y="0" width="50" height="8" fill="#111111" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="0" y="-6">0</text><text x="100" y="-6" text-anchor="middle">5 m</text><text x="200" y="-6" text-anchor="middle">10 m</text>
+    <text x="200" y="26" text-anchor="middle">≈ 33 ft</text>
+  </g>
+
+  <!-- key -->
+  <g transform="translate(300 668)" font-size="12" fill="#b8c2cc">
+    <path d="M0 4 H30" stroke="#00b4f0" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round"/><text x="38" y="8">Your route</text>
+    <path d="M135 4 H165" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 6"/><text x="173" y="8">Walk to set</text>
+    <rect x="280" y="-4" width="30" height="16" fill="#f06a4f" fill-opacity="0.08" stroke="#f06a4f" stroke-width="2" stroke-dasharray="6 4"/><text x="318" y="8">Keep clear</text>
+    <rect x="410" y="-4" width="30" height="16" rx="3" fill="#222222" stroke="#a79281" stroke-width="2"/><text x="448" y="8">Truck or trailer</text>
+    <text x="0" y="40" font-size="11">Doors marked in white. Not to scale for people.</text>
+  </g>
+</svg>
+<figcaption>Basecamp. You start at sign-in, by the lot exit.</figcaption></figure>
+    <p class="scene-text">You pull up at 5:40. <em>Marco, the key PA,</em> is already setting out cones. He looks at his watch.</p>
+    <div class="decision">
+      <p class="prompt">What do you say?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="-10,0,0"><p class="say">"My call was 6:00, so I'm early."</p><p class="result">Marco: "General crew call is 6. PAs were 5:30. Read your line on the sheet."</p><span class="meta">(−10, 0, 0)</span></li>
+        <li class="opt" data-key="B" data-m="5,0,0" data-best><p class="say">"Sorry, I misread my call. What do you need?" And you check your own line next time.</p><p class="result">Marco hands you a stack of sides. "Next time be here 15 early. Early is on time."</p><span class="meta">(+5, 0, 0)</span></li>
+        <li class="opt" data-key="C" data-m="-5,0,0"><p class="say">"Sorry, traffic was bad."</p><p class="result">Marco: "Traffic's always bad."</p><span class="meta">(−5, 0, 0)</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>PAs often have an earlier call than general crew call. Your call is on your line of the sheet. Early is on time; on time is late.</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <section class="beat" id="s1h" data-next="s2" data-title="Nearest hospital">
+    <span class="slate"><span>Scene 1</span><span>Call Time</span><span>5:45 a.m.</span></span>
+    <h2>Quick check</h2>
+    <p class="scene-text">Marco: "First thing I ask every new PA. Where's the nearest hospital?"</p>
+    <div class="decision">
+      <p class="prompt">Which line of the call sheet answers him?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="0,0,0"><p class="say">Basecamp: lot on Elm Street at Main</p><p class="result">That's where you're standing. Look further down the sheet.</p><span class="meta">(0, 0, 0)</span></li>
+        <li class="opt" data-key="B" data-m="0,0,0" data-best><p class="say">St. Agnes Hospital, 1200 Elm Street, 2.1 mi</p><p class="result">Marco: "Good. Most people have to look."</p><span class="meta">(0, 0, 0)</span></li>
+        <li class="opt" data-key="C" data-m="0,0,0"><p class="say">"I'd look it up on my phone."</p><p class="result">Marco: "In an emergency you won't have time. It's on the sheet."</p><span class="meta">(0, 0, 0)</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>The nearest hospital is on every call sheet. Know it before you need it.</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <!-- SCENE 2 -->
+  <section class="beat" id="s2" data-next="s3a" data-title="The radio">
+    <span class="slate"><span>Scene 2</span><span>The Radio</span><span>6:15 a.m.</span></span>
+    <h2>The radio</h2>
+    <p class="scene-text">Marco hands you a walkie and an earpiece. "Production's on channel 1. Don't talk on it unless you have to."</p>
+    <div class="radio"><p><b>Dana:</b> Marco, Dana.</p></div>
+    <p class="scene-text">Marco's guiding a truck back and doesn't answer. <em>Dana is the 2nd AD,</em> and your boss today. Ten seconds later:</p>
+    <div class="radio"><p><b>Dana:</b> Anyone near basecamp?</p></div>
+    <div class="decision">
+      <p class="prompt">You're at basecamp. What do you say?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="10,5,0" data-best><p class="say">"Go for [your name], I'm at basecamp."</p><p class="result">Dana: "Need the sides for Jules in hair and makeup." You: "Copy." You take the route on the basecamp map.</p><span class="meta">(+10, +5, 0)</span></li>
+        <li class="opt" data-key="B" data-m="0,-5,0"><p class="say">"Hi Dana, this is the new PA, I'm at basecamp right now, what do you need me to do?"</p><p class="result">Dana: "…Need sides in makeup. Keep it short on 1."</p><span class="meta">(0, −5, 0)</span></li>
+        <li class="opt" data-key="C" data-m="-5,-5,0"><p class="say">Wait for Marco to answer.</p><p class="result">Dana, again: "Anyone?" Marco finally answers and gives you a look.</p><span class="meta">(−5, −5, 0)</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>Answer with "go for" and your name. Confirm with "copy". Keep channel 1 short: if it takes more than a sentence, say "go to 2" and switch.</div>
+    <details class="card" style="margin-top:1rem">
+      <summary><b>Radio words</b></summary>
+      <table class="debrief-table" style="margin-top:0.5rem">
+        <tr><td><b>Go for [name]</b></td><td>How you answer when called</td></tr>
+        <tr><td><b>Copy</b></td><td>I heard and understood</td></tr>
+        <tr><td><b>Flying in</b></td><td>On my way</td></tr>
+        <tr><td><b>Go to 2</b></td><td>Switch channels for a longer talk</td></tr>
+        <tr><td><b>What's your 20?</b></td><td>Where are you?</td></tr>
+        <tr><td><b>10-1</b></td><td>Bathroom break</td></tr>
+      </table>
+    </details>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <!-- SCENE 3 -->
+  <section class="beat" id="s3a" data-next="s3b" data-title="Where to stand">
+    <span class="slate"><span>Scene 3</span><span>The Lockup</span><span>9:20 a.m.</span></span>
+    <h2>The lockup: where do you stand?</h2>
+    <p class="scene-text">Marco puts you on the corner of Main and Third. "Nobody walks into the shot while we're rolling. Find a spot where you can see anyone coming. I'll be back."</p>
+    <p class="scene-text">They're lighting a shot of <em>Jules,</em> the lead. Jules plays the scene to the other actor, who stands just beside the lens.</p>
+    <figure class="map"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" role="img" aria-labelledby="lockup-t lockup-d" font-family="Montserrat, 'Segoe UI', sans-serif">
+  <title id="lockup-t">The lockup map</title>
+  <desc id="lockup-d">Top-down map of the block. The camera sits on the north sidewalk near the corner of Main Street and Third Avenue, pointing east at Jules. Its frame widens east down the block. Jules looks back toward the lens, so the space beside the camera is in their eyeline. Pedestrians arrive down Third Avenue to the corner. Spot A is at the corner, behind the camera and out of frame. Spot B is beside the camera, in Jules's eyeline. Spot C is down the block, inside the frame.</desc>
+  <defs>
+    <pattern id="lockup-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#2f2f2f" stroke-width="1"/>
+    </pattern>
+    <pattern id="lockup-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#3a342f" stroke-width="2"/>
+    </pattern>
+    <marker id="lockup-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#ffffff"/>
+    </marker>
+    <clipPath id="lockup-mapclip"><rect x="40" y="40" width="920" height="600"/></clipPath>
+  </defs>
+
+  <!-- frame -->
+  <rect x="0" y="0" width="1000" height="760" fill="#111111"/>
+  <rect x="40" y="40" width="920" height="600" fill="#1a1a1a"/>
+  <rect x="40" y="40" width="920" height="600" fill="url(#lockup-grid)"/>
+
+  <g clip-path="url(#lockup-mapclip)">
+    <!-- buildings (north and south blocks, west corner lots) -->
+    <g fill="url(#lockup-hatch)" stroke="#a79281" stroke-width="3">
+      <rect x="40" y="40" width="160" height="170"/>
+      <rect x="320" y="40" width="250" height="170"/>
+      <rect x="570" y="40" width="200" height="170"/>
+      <rect x="770" y="40" width="190" height="170"/>
+      <rect x="40" y="500" width="160" height="140"/>
+      <rect x="320" y="500" width="640" height="140"/>
+    </g>
+    <!-- kerbs -->
+    <g stroke="#a79281" stroke-width="2" fill="none" opacity="0.7">
+      <path d="M200 270H40 M320 270H960 M200 440H40 M320 440H960"/>
+      <path d="M200 40V270 M320 40V270 M200 440V640 M320 440V640"/>
+    </g>
+    <!-- lane lines -->
+    <g stroke="#6b6158" stroke-width="2" stroke-dasharray="18 14">
+      <path d="M40 355H200 M320 355H960"/>
+      <path d="M260 40V270 M260 440V640"/>
+    </g>
+
+    <!-- frame cone -->
+    <path class="frame-cone" d="M430 238 L1000 52 L1000 424 Z" fill="#6ec1e4" fill-opacity="0.10" stroke="#6ec1e4" stroke-width="2.5" stroke-dasharray="10 7"/>
+
+    <!-- eyeline wedge: Jules looks just past the lens -->
+    <path class="eyeline-wedge" d="M700 236 L405 205 L405 268 Z" fill="#00b4f0" fill-opacity="0.12"/>
+    <line x1="700" y1="236" x2="455" y2="252" stroke="#00b4f0" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/>
+
+    <!-- pedestrian route -->
+    <path d="M232 60 V200 Q232 236 262 236 H274" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#lockup-arrow)"/>
+
+    <!-- lighting stand near Jules -->
+    <g stroke="#a79281" stroke-width="2" fill="none">
+      <circle cx="745" cy="222" r="5"/><path d="M745 222 l-12 -10 M745 222 l14 -6 M745 222 l0 14"/>
+    </g>
+
+    <!-- video village tent, south sidewalk -->
+    <rect x="600" y="452" width="120" height="44" fill="#222222" stroke="#a79281" stroke-width="2"/>
+    <text x="660" y="479" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.5" fill="#a79281">VIDEO VILLAGE</text>
+
+    <!-- camera -->
+    <g transform="translate(418 238)">
+      <rect x="-16" y="-11" width="26" height="22" rx="3" fill="#2c2c2c" stroke="#6ec1e4" stroke-width="2.5"/>
+      <path d="M10 -7 L22 -12 L22 12 L10 7 Z" fill="#6ec1e4"/>
+    </g>
+    <text x="398" y="292" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="1.5" fill="#6ec1e4">CAMERA</text>
+
+    <!-- off-camera actor beside the lens -->
+    <circle cx="455" cy="254" r="9" fill="#222222" stroke="#d3e0ff" stroke-width="2"/>
+    <path d="M450 263 L424 300" stroke="#d3e0ff" stroke-width="1" opacity="0.6"/><text x="398" y="314" text-anchor="middle" font-size="11" fill="#d3e0ff">OFF-CAMERA ACTOR</text>
+
+    <!-- Jules -->
+    <circle cx="704" cy="236" r="11" fill="#d3e0ff"/>
+    <text x="704" y="196" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1" fill="#ffffff">JULES</text>
+    <text x="704" y="263" text-anchor="middle" font-size="10" fill="#b8c2cc">on their mark</text>
+
+    <!-- choice spots -->
+    <g font-size="17" font-weight="800" text-anchor="middle">
+      <g class="spot" data-key="A"><circle cx="300" cy="236" r="26" fill="transparent"/><circle cx="300" cy="236" r="16" fill="#111111" stroke="#ffffff" stroke-width="2.5"/><text x="300" y="242" fill="#ffffff">A</text></g>
+      <g class="spot" data-key="B"><circle cx="440" cy="214" r="26" fill="transparent"/><circle cx="440" cy="214" r="16" fill="#111111" stroke="#ffffff" stroke-width="2.5"/><text x="440" y="220" fill="#ffffff">B</text></g>
+      <g class="spot" data-key="C"><circle cx="860" cy="240" r="26" fill="transparent"/><circle cx="860" cy="240" r="16" fill="#111111" stroke="#ffffff" stroke-width="2.5"/><text x="860" y="246" fill="#ffffff">C</text></g>
+    </g>
+
+    <!-- street names -->
+    <g font-size="13" font-weight="700" letter-spacing="3" fill="#8a8178">
+      <text x="640" y="400" text-anchor="middle">MAIN STREET</text>
+      <text x="0" y="0" transform="translate(286 600) rotate(-90)">THIRD AVENUE</text>
+    </g>
+    <text x="940" y="300" text-anchor="end" font-size="11" fill="#b8c2cc">PA 2 holds the far end →</text>
+  </g>
+
+  <!-- compass -->
+  <g transform="translate(925 700)" font-size="12" font-weight="700" fill="#b8c2cc" text-anchor="middle">
+    <circle r="20" fill="#111111" stroke="#4d453f" stroke-width="2"/>
+    <path d="M0 -14 L6 4 L0 0 L-6 4 Z" fill="#b8c2cc"/>
+    <text y="-26">N</text>
+  </g>
+
+  <!-- scale bar: 20 px = 1 m -->
+  <g transform="translate(40 672)" font-size="11" fill="#b8c2cc">
+    <rect x="0" y="0" width="50" height="8" fill="#ffffff"/>
+    <rect x="50" y="0" width="50" height="8" fill="#111111" stroke="#ffffff" stroke-width="1.5"/>
+    <rect x="100" y="0" width="50" height="8" fill="#ffffff"/>
+    <rect x="150" y="0" width="50" height="8" fill="#111111" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="0" y="-6">0</text><text x="100" y="-6" text-anchor="middle">5 m</text><text x="200" y="-6" text-anchor="middle">10 m</text>
+    <text x="200" y="26" text-anchor="middle">≈ 33 ft</text>
+  </g>
+
+  <!-- key -->
+  <g transform="translate(330 668)" font-size="12" fill="#b8c2cc">
+    <path d="M0 4 H30" stroke="#6ec1e4" stroke-width="2.5" stroke-dasharray="10 7"/><text x="38" y="8">Camera frame</text>
+    <path d="M150 4 H180" stroke="#00b4f0" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/><text x="188" y="8">Eyeline</text>
+    <path d="M270 4 H300" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 6"/><text x="308" y="8">Pedestrians</text>
+    <circle cx="420" cy="4" r="9" fill="#111111" stroke="#ffffff" stroke-width="2"/><text x="420" y="8" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff">A</text><text x="436" y="8">Where you could stand</text>
+    <text x="0" y="40" font-size="11">Not to scale for people. Buildings hatched.</text>
+  </g>
+</svg>
+<figcaption>Tap A, B or C on the map, or use the buttons below.</figcaption></figure>
+    <div class="decision">
+      <p class="prompt">Where do you stand?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="5,5,0" data-best><p class="say">At the corner, behind the camera's side, with a clear view up the avenue</p><p class="result">Marco, passing: "Good spot."</p><span class="meta">(+5, +5, 0)</span></li>
+        <li class="opt" data-key="B" data-m="-10,-5,0" data-lit="eyeline"><p class="say">Beside the camera, so you can hear the AD</p><p class="result">Jules stops mid-line. Dana: "Whoever's by camera, you're in Jules's eyeline. Clear it, please." The eyeline is lit on the map.</p><span class="meta">(−10, −5, 0)</span></li>
+        <li class="opt" data-key="C" data-m="-5,-10,0" data-lit="frame"><p class="say">Halfway down the block, closer to where people come from</p><p class="result">The camera operator: "There's someone in the back of frame." You're the someone. The frame is lit on the map.</p><span class="meta">(−5, −10, 0)</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>An actor's eyeline is where they look during the shot, usually at the other actor beside the lens. Never stand in it, and don't watch an actor during a take. If you can see the lens, it may see you. When in doubt, ask "Am I clear?"</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <section class="beat" id="s3b" data-next="s4" data-title="The neighbour">
+    <span class="slate"><span>Scene 3</span><span>The Lockup</span><span>9:30 a.m.</span></span>
+    <h2>The lockup: the neighbour</h2>
+    <p class="scene-text">You're at the corner, out of frame and out of the eyeline.</p>
+    <div class="radio"><p><b>Dana:</b> Lock it up… Rolling!</p></div>
+    <p class="scene-text">A neighbour with grocery bags comes down the avenue to your corner. "I live right there. I just need to get through."</p>
+    <div class="decision">
+      <p class="prompt">What do you do?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="10,5,0" data-best><p class="say">"We're rolling right now. It'll be about a minute. Thanks so much for waiting." Then echo "rolling" on the radio.</p><p class="result">You hear "cut", and you walk them through. They thank you.</p><span class="meta">(+10, +5, 0)</span></li>
+        <li class="opt" data-key="B" data-m="-15,-15,0" data-next="s3r"><p class="say">Let them through. It's their street.</p><p class="result">They walk into the back of the shot. Radio: "Cut! Who's got that corner?"</p><span class="meta">(−15, −15, 0) · goes to the branch scene</span></li>
+        <li class="opt" data-key="C" data-m="-10,0,-5" data-next="s3r"><p class="say">Put out an arm and block them.</p><p class="result">They push past you, angry. Radio: "Cut!" You've touched a member of the public.</p><span class="meta">(−10, 0, −5) · goes to the branch scene</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>A lockup is a request, not an order. You can't legally stop the public, so be polite, give a time, and thank them. Never touch anyone. Echo "rolling" and "cut" so the next PA hears it too.</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <section class="beat" id="s3r" data-next="s4" data-title="Owning a mistake">
+    <p class="branch-note">Branch scene: only if the neighbour walked into the shot</p>
+    <span class="slate"><span>Scene 3b</span><span>Walk and Talk</span><span>9:40 a.m.</span></span>
+    <h2>Walk and talk</h2>
+    <p class="scene-text">Dana walks up. "What happened on your corner?"</p>
+    <div class="decision">
+      <p class="prompt">What do you say?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="10,0,0" data-best><p class="say">"That was my corner. My mistake. Next time I'll ask them to wait and tell them how long."</p><p class="result">Dana: "Good. It happens once."</p><span class="meta">(+10, 0, 0)</span></li>
+        <li class="opt" data-key="B" data-m="0,0,0"><p class="say">"They said they lived there. I didn't think I could stop them."</p><p class="result">Dana: "You can't stop them. You can ask nicely and tell them how long."</p><span class="meta">(0, 0, 0)</span></li>
+        <li class="opt" data-key="C" data-m="-10,0,0"><p class="say">"Nobody told me what to do."</p><p class="result">Dana: "Marco told you. Next time, ask if you're not sure."</p><span class="meta">(−10, 0, 0)</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>Own the mistake in one sentence and say what you'll do next time. ADs remember the answer more than the mistake.</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <!-- SCENE 4 -->
+  <section class="beat" id="s4" data-next="s5" data-title="Chain of command">
+    <span class="slate"><span>Scene 4</span><span>Between Setups</span><span>11:00 a.m.</span></span>
+    <h2>Two requests at once</h2>
+    <p class="scene-text">The crew is turning around for the reverse. Two requests reach you at the same moment.</p>
+    <p class="scene-text"><em>Rae, a grip:</em> "Hey, can you grab that C-stand and move it over by the truck?"</p>
+    <p class="scene-text"><em>Jules:</em> "Could you tell the director I want to try the line differently?"</p>
+    <div class="decision">
+      <p class="prompt">What do you do?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="10,0,5" data-best><p class="say">Tell Rae you'll check with Dana whether you're free to help. Tell Jules you'll pass it to the 2nd AD. Then radio Dana.</p><p class="result">Dana: "Copy, I'll tell the 1st. Rae can have you for five." Rae shows you how they want the stand carried.</p><span class="meta">(+10, 0, +5)</span></li>
+        <li class="opt" data-key="B" data-m="-10,-5,-5"><p class="say">Move the C-stand yourself, then walk over to the director.</p><p class="result">Rae: "Not like that. Don't touch my gear without asking." The 1st AD stops you before you reach the director.</p><span class="meta">(−10, −5, −5)</span></li>
+        <li class="opt" data-key="C" data-m="-5,0,0"><p class="say">Tell them both you're busy.</p><p class="result">Jules has to find someone else, and Rae carries it alone.</p><span class="meta">(−5, 0, 0)</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>You work for the AD department. Other departments' gear belongs to them: don't touch it unless they ask and show you how. Messages for the director go through the ADs.</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <!-- SCENE 5 -->
+  <section class="beat" id="s5" data-next="s6" data-title="The picture car">
+    <span class="slate"><span>Scene 5</span><span>The Picture Car</span><span>2:15 p.m.</span></span>
+    <h2>The picture car</h2>
+    <p class="scene-text">After lunch, the scene is a car pulling up fast to the kerb. The precision driver is rehearsing. You're holding the background extras on the sidewalk.</p>
+    <p class="scene-text">The car is backing up to its first mark. <em>One extra steps off the kerb to take a selfie, right into its path.</em> From camera, nobody can see them.</p>
+    <figure class="map"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" role="img" aria-labelledby="picturecar-t picturecar-d" font-family="Montserrat, 'Segoe UI', sans-serif">
+  <title id="picturecar-t">The picture car map</title>
+  <desc id="picturecar-d">Top-down map of Main Street during the picture car rehearsal. The car is at its end mark by the north kerb and is backing east to its first mark. The lane it reverses along is a keep-clear zone, and the area behind the car is the driver's blind spot. The camera and video village are on the south side, and the car body blocks their view east. Background extras are held on the north sidewalk, where you are standing. One extra has stepped off the kerb into the car's path, inside the blind spot.</desc>
+  <defs>
+    <pattern id="picturecar-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#2f2f2f" stroke-width="1"/>
+    </pattern>
+    <pattern id="picturecar-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#3a342f" stroke-width="2"/>
+    </pattern>
+    <pattern id="picturecar-emberhatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#f06a4f" stroke-width="1.5" stroke-opacity="0.45"/>
+    </pattern>
+    <marker id="picturecar-arrowember" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#f06a4f"/>
+    </marker>
+    <clipPath id="picturecar-mapclip"><rect x="40" y="40" width="920" height="600"/></clipPath>
+  </defs>
+
+  <rect x="0" y="0" width="1000" height="760" fill="#111111"/>
+  <rect x="40" y="40" width="920" height="600" fill="#1a1a1a"/>
+  <rect x="40" y="40" width="920" height="600" fill="url(#picturecar-grid)"/>
+
+  <g clip-path="url(#picturecar-mapclip)">
+    <!-- buildings -->
+    <g fill="url(#picturecar-hatch)" stroke="#a79281" stroke-width="3">
+      <rect x="40" y="40" width="300" height="170"/>
+      <rect x="340" y="40" width="330" height="170"/>
+      <rect x="670" y="40" width="290" height="170"/>
+      <rect x="40" y="500" width="920" height="140"/>
+    </g>
+    <path d="M40 270H960 M40 440H960" stroke="#a79281" stroke-width="2" opacity="0.7"/>
+    <path d="M40 355H960" stroke="#6b6158" stroke-width="2" stroke-dasharray="18 14"/>
+
+    <!-- car path: keep clear -->
+    <rect x="470" y="276" width="490" height="74" fill="#f06a4f" fill-opacity="0.06" stroke="#f06a4f" stroke-width="2.5" stroke-dasharray="8 6"/>
+    <!-- blind spot behind the reversing car -->
+    <path d="M622 290 L800 276 L800 350 L622 336 Z" fill="url(#picturecar-emberhatch)"/>
+    <text x="712" y="368" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1" fill="#f06a4f">DRIVER'S BLIND SPOT</text>
+
+    <!-- marks -->
+    <g stroke="#a79281" stroke-width="3"><path d="M492 280V346 M900 280V346"/></g>
+    <g font-size="10" font-weight="700" letter-spacing="1" fill="#a79281" text-anchor="middle">
+      <text x="512" y="372">END MARK</text>
+      <text x="900" y="388">FIRST MARK</text>
+    </g>
+
+    <!-- the car (front faces west), reversing east -->
+    <g>
+      <rect x="500" y="290" width="122" height="46" rx="10" fill="#2c2c2c" stroke="#ffffff" stroke-width="2.5"/>
+      <rect x="522" y="296" width="30" height="34" rx="4" fill="none" stroke="#b8c2cc" stroke-width="1.5"/>
+      <rect x="575" y="296" width="30" height="34" rx="4" fill="none" stroke="#b8c2cc" stroke-width="1.5"/>
+      <text x="561" y="318" text-anchor="middle" font-size="9" font-weight="800" letter-spacing="1" fill="#ffffff">CAR</text>
+    </g>
+    <path d="M630 313 H880" stroke="#f06a4f" stroke-width="2.5" marker-end="url(#picturecar-arrowember)"/>
+    <text x="882" y="340" text-anchor="end" font-size="11" fill="#f06a4f">reversing to first mark</text>
+
+    <!-- background holding on the north sidewalk -->
+    <rect x="640" y="218" width="230" height="46" fill="none" stroke="#a79281" stroke-width="2" stroke-dasharray="3 5"/>
+    <text x="755" y="232" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1" fill="#a79281">BACKGROUND HOLDING</text>
+    <g fill="#d3e0ff"><circle cx="680" cy="250" r="6"/><circle cx="705" cy="248" r="6"/><circle cx="790" cy="250" r="6"/><circle cx="815" cy="247" r="6"/><circle cx="845" cy="251" r="6"/></g>
+
+    <!-- the extra in the path -->
+    <circle cx="745" cy="300" r="14" fill="none" stroke="#f06a4f" stroke-width="2.5"/>
+    <circle cx="745" cy="300" r="7" fill="#d3e0ff"/>
+    <path d="M745 286 V258" stroke="#d3e0ff" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <text x="766" y="292" font-size="11" font-weight="700" fill="#ffffff">Extra off the kerb</text>
+
+    <!-- you -->
+    <circle cx="610" cy="242" r="15" fill="#111111" stroke="#ffffff" stroke-width="2.5"/>
+    <text x="610" y="247" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff">YOU</text>
+
+    <!-- camera on the south side, looking north-west at the end mark -->
+    <path d="M430 420 L330 270 L560 270 Z" fill="#6ec1e4" fill-opacity="0.10" stroke="#6ec1e4" stroke-width="2.5" stroke-dasharray="10 7"/>
+    <g transform="translate(430 432) rotate(-90)">
+      <rect x="-16" y="-11" width="26" height="22" rx="3" fill="#2c2c2c" stroke="#6ec1e4" stroke-width="2.5"/>
+      <path d="M10 -7 L22 -12 L22 12 L10 7 Z" fill="#6ec1e4"/>
+    </g>
+    <text x="458" y="436" font-size="12" font-weight="700" letter-spacing="1.5" fill="#6ec1e4">CAMERA</text>
+    <rect x="160" y="452" width="120" height="40" fill="#222222" stroke="#a79281" stroke-width="2"/>
+    <text x="220" y="477" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.5" fill="#a79281">VIDEO VILLAGE</text>
+    <text x="440" y="470" font-size="11" fill="#b8c2cc">The car blocks camera's view east</text>
+
+    <text x="250" y="400" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="3" fill="#8a8178">MAIN STREET</text>
+  </g>
+
+  <!-- compass -->
+  <g transform="translate(925 700)" font-size="12" font-weight="700" fill="#b8c2cc" text-anchor="middle">
+    <circle r="20" fill="#111111" stroke="#4d453f" stroke-width="2"/>
+    <path d="M0 -14 L6 4 L0 0 L-6 4 Z" fill="#b8c2cc"/>
+    <text y="-26">N</text>
+  </g>
+
+  <!-- scale bar: 20 px = 1 m -->
+  <g transform="translate(40 672)" font-size="11" fill="#b8c2cc">
+    <rect x="0" y="0" width="50" height="8" fill="#ffffff"/>
+    <rect x="50" y="0" width="50" height="8" fill="#111111" stroke="#ffffff" stroke-width="1.5"/>
+    <rect x="100" y="0" width="50" height="8" fill="#ffffff"/>
+    <rect x="150" y="0" width="50" height="8" fill="#111111" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="0" y="-6">0</text><text x="100" y="-6" text-anchor="middle">5 m</text><text x="200" y="-6" text-anchor="middle">10 m</text>
+    <text x="200" y="26" text-anchor="middle">≈ 33 ft</text>
+  </g>
+
+  <!-- key -->
+  <g transform="translate(300 668)" font-size="12" fill="#b8c2cc">
+    <rect x="0" y="-4" width="30" height="16" fill="#f06a4f" fill-opacity="0.08" stroke="#f06a4f" stroke-width="2" stroke-dasharray="6 4"/><text x="38" y="8">Car path: keep clear</text>
+    <rect x="180" y="-4" width="30" height="16" fill="url(#picturecar-emberhatch)" stroke="#f06a4f" stroke-width="1"/><text x="218" y="8">Blind spot</text>
+    <path d="M310 4 H340" stroke="#6ec1e4" stroke-width="2.5" stroke-dasharray="10 7"/><text x="348" y="8">Camera frame</text>
+    <circle cx="470" cy="4" r="7" fill="#d3e0ff"/><text x="484" y="8">Extra</text>
+    <text x="0" y="40" font-size="11">Hazards in ember, always labelled. Not to scale for people.</text>
+  </g>
+</svg>
+<figcaption>The car reverses east. The extra is in the driver's blind spot, and you're the only one who can see it.</figcaption></figure>
+    <div class="decision">
+      <p class="prompt">What do you do?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="10,-5,20" data-best><p class="say">On channel 1: "Hold the roll, person in the car's path!" Then move the extra back.</p><p class="result">Dana: "Holding! Thank you." The car stops. The stunt coordinator moves the extras' holding area back from the kerb.</p><span class="meta">(+10, −5, +20)</span></li>
+        <li class="opt" data-key="B" data-m="0,0,-10" data-next="s5r"><p class="say">Walk over and quietly ask the extra to step back.</p><p class="result">The car stops a few feet from them. The driver is shaken, and the stunt coordinator wants to know why nobody called it.</p><span class="meta">(0, 0, −10) · goes to the branch scene</span></li>
+        <li class="opt" data-key="C" data-m="-10,0,-25" data-next="s5r"><p class="say">It's only a rehearsal and the driver can see. Say nothing.</p><p class="result">The driver can't see behind the car. Someone shouts. The car stops with inches to spare.</p><span class="meta">(−10, 0, −25) · goes to the branch scene</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout ember"><b>On set</b>Anyone on set can call a hold for safety, and nobody will be angry that you did. Call it first, then fix it. A lost minute is cheap; an injury shuts down the shoot.</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <section class="beat" id="s5r" data-next="s6" data-title="After a near miss">
+    <p class="branch-note">Branch scene: only if the hold wasn't called</p>
+    <span class="slate"><span>Scene 5b</span><span>Safety Meeting</span><span>2:30 p.m.</span></span>
+    <h2>Safety meeting</h2>
+    <p class="scene-text">Nobody was hurt. The 1st AD stops work and calls the crew together. "Who had eyes on the sidewalk?"</p>
+    <div class="decision">
+      <p class="prompt">What do you do?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="10,0,10" data-best><p class="say">"I did. I saw them step off, and I should have called a hold."</p><p class="result">1st AD: "Thank you. Next time, call it. Everyone hear that? Anyone can call it."</p><span class="meta">(+10, 0, +10)</span></li>
+        <li class="opt" data-key="B" data-m="-15,0,-5"><p class="say">Say nothing.</p><p class="result">The extra points at you.</p><span class="meta">(−15, 0, −5)</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout ember"><b>On set</b>After a near miss, tell the truth fast. The safety meeting exists so it doesn't happen twice.</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <!-- SCENE 6 -->
+  <section class="beat" id="s6" data-next="ending" data-title="Wrapping out">
+    <span class="slate"><span>Scene 6</span><span>Martini Shot</span><span>6:45 p.m.</span></span>
+    <h2>Wrap</h2>
+    <div class="radio"><p><b>Dana:</b> That's a wrap on the day. Thanks, everyone.</p></div>
+    <p class="scene-text">You've been up since 4.</p>
+    <div class="decision" data-type="multi" data-pass="10,5,0" data-fail="-5,0,0"
+         data-pass-text="Marco: &quot;See you tomorrow. Same call.&quot;"
+         data-fail-text="Marco catches you at your car: &quot;You still have my walkie.&quot;">
+      <p class="prompt">What do you do before you leave? Choose all that apply.</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-right="1"><p class="say">Return your walkie and earpiece to Marco</p><span class="meta">(do it)</span></li>
+        <li class="opt" data-key="B" data-right="1"><p class="say">Pick up the cones and signs from your corner</p><span class="meta">(do it)</span></li>
+        <li class="opt" data-key="C" data-right="1"><p class="say">Check you have tomorrow's call sheet</p><span class="meta">(do it)</span></li>
+        <li class="opt" data-key="D" data-right="1"><p class="say">Sign out with the key PA</p><span class="meta">(do it)</span></li>
+        <li class="opt" data-key="E" data-right="0"><p class="say">Head straight home</p><span class="meta">(not yet)</span></li>
+      </ol>
+      <p class="nojs dim">All four done and nothing missed: (+10, +5, 0). Missed any: (−5, 0, 0).</p>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>You're not wrapped until the PAs are wrapped. A missing walkie gets charged to the production.</div>
+    <div class="next-row"><button class="btn" type="button">See how the day went</button></div>
+  </section>
+
+  <!-- ENDING -->
+  <section class="beat" id="ending" data-enter="ending">
+    <span class="slate"><span>End of day</span><span>Wrap</span></span>
+    <h2>How the day went</h2>
+    <p class="end-note">Three endings, decided by the meters:</p>
+    <div class="end feature" data-end="back"><p class="end-note">Asked back: safety 60+ and crew trust 60+</p><p class="lede" style="margin:0">Dana: "Same call tomorrow. Nice work today."</p></div>
+    <div class="end card" data-end="day" style="margin-top:0.8rem"><p class="end-note">Day player: safety 40+, but not asked back</p><p class="lede" style="margin:0">Marco: "Dana says they've got you down as a maybe for next week."</p></div>
+    <div class="end callout ember" data-end="talk"><p class="end-note">Talk with the 2nd AD: safety under 40, whatever else happened</p><b>Talk with the 2nd AD</b>Dana: "Can I have a minute? Let's go through today."</div>
+    <ul class="final-reads js-only"></ul>
+    <p class="js-only"><button class="btn" type="button" data-go="debrief">Debrief</button></p>
+  </section>
+
+  <!-- DEBRIEF -->
+  <section class="beat" id="debrief" data-enter="debrief">
+    <span class="slate"><span>Debrief</span><span>Your day</span></span>
+    <h2>Debrief</h2>
+    <div class="js-only">
+      <p class="dim" style="margin:0">Best calls</p>
+      <p class="score">0 / 0</p>
+      <table class="debrief-table" style="margin-top:1rem">
+        <thead><tr><th>Moment</th><th>You chose</th><th>Best</th><th>The rule</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="nojs">With JavaScript on, this screen lists every choice you made beside the best answer and the rule behind it.</p>
+
+    <h3>Keep the card</h3>
+    <div class="feature" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between">
+      <span><b>The PA's First-Day Card:</b> radio words, the lockup script, where to stand, who you work for, safety, and the wrap checklist on one page.</span>
+      <a class="btn" href="pa-first-day-card.pdf">Download the PDF</a>
+    </div>
+
+    <h3>How ready do you feel for your first day?</h3>
+    <div class="rating js-only" role="group" aria-label="Readiness, 1 to 5">
+      <button class="btn ghost" type="button" aria-pressed="false">1</button>
+      <button class="btn ghost" type="button" aria-pressed="false">2</button>
+      <button class="btn ghost" type="button" aria-pressed="false">3</button>
+      <button class="btn ghost" type="button" aria-pressed="false">4</button>
+      <button class="btn ghost" type="button" aria-pressed="false">5</button>
+    </div>
+    <p class="rating-thanks dim" hidden>Thanks. In a live course this answer would go to the training lead; in this sample it isn't recorded.</p>
+
+    <p class="js-only" style="margin-top:2rem"><button class="btn ghost" type="button" data-go="restart">Run the day again</button></p>
+  </section>
+</main>
+
+<footer class="sls-foot">© 2026 Savage Light Studios · Scenario by Feralucce Savage · Written for a non-union indie feature in the US. Your set may differ: your AD has the final word.</footer>
+<script src="../assets/scenario.js"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Your First Day as a PA</title>
+<meta name="description" content="A branching scenario for a production assistant's first day on a film set: call time, the radio, the lockup, chain of command, safety and wrap." />
+<link rel="stylesheet" href="../assets/sls.css" />
+<link rel="stylesheet" href="../assets/scenario.css" />
+</head>
+<body>
+<header class="sls-bar">
+  <a class="sls-wordmark" href="../../">Savage Light Studios</a>
+  <nav><a href="pa-first-day-card.pdf">The card (PDF)</a></nav>
+</header>
+
+<div class="meterbar" aria-label="Your meters">
+  <div class="meters">
+    <div class="meter"><label><span class="crew-label"><span class="crew">Crew </span>trust</span> <span class="v">50</span></label><div class="track"><div class="fill" style="width:50%"></div></div></div>
+    <div class="meter"><label>Schedule <span class="v">50</span></label><div class="track"><div class="fill" style="width:50%"></div></div></div>
+    <div class="meter"><label>Safety <span class="v">50</span></label><div class="track"><div class="fill" style="width:50%"></div></div></div>
+  </div>
+</div>
+<p id="live" class="visually-hidden" aria-live="polite" style="position:absolute;left:-9999px"></p>
+
+<main class="sls">
+  <p class="nojs callout"><b>Reading without JavaScript</b>The scenario is shown as a script. Every choice is listed with what happens, the best answer is marked, and the meter changes are in brackets as crew trust, schedule, safety.</p>
+
+  <!-- TITLE -->
+  <section class="beat" id="title">
+    <div class="sls-hero">
+      <span class="slate"><span>Day 1</span><span>Ext. Street</span><span>Take 1</span></span>
+      <h1>Your First Day as a PA</h1>
+      <p class="lede">Call time is 6 a.m. Nobody's going to explain twice.</p>
+      <p class="dim">A branching scenario, about 15 minutes. A non-union indie feature in the US.</p>
+      <p class="js-only"><button class="btn" type="button" data-go="briefing">Start the day</button></p>
+    </div>
+  </section>
+
+  <!-- BRIEFING -->
+  <section class="beat" id="briefing">
+    <span class="slate"><span>Briefing</span><span>Before call</span></span>
+    <h2>How today works</h2>
+    <div class="feature"><b>What you'll practise:</b> reading a call sheet, talking on the radio, holding a lockup, standing clear of the frame and the actors' eyelines, knowing who you work for, calling a safety hold, and wrapping out.</div>
+    <p style="margin-top:1rem">You'll make the calls a new production assistant makes on a real shooting day. Three meters track how it's going:</p>
+    <ul>
+      <li><b>Crew trust:</b> would they work with you again?</li>
+      <li><b>Schedule:</b> did you help the day run on time?</li>
+      <li><b>Safety:</b> did everyone go home in one piece? Low safety decides your ending on its own.</li>
+    </ul>
+    <p>You can't get fired. Mistakes get corrected, like on a real set. There's a debrief at the end, and a card to keep.</p>
+    <p class="js-only"><button class="btn" type="button" data-go="s1">Go to set</button></p>
+  </section>
+
+  <!-- SCENE 1 -->
+  <section class="beat" id="s1" data-next="s1h" data-title="Call time">
+    <span class="slate"><span>Scene 1</span><span>Call Time</span><span>5:40 a.m.</span></span>
+    <h2>Call time</h2>
+    <p class="scene-text">The call sheet came by email last night. You skimmed it.</p>
+    <div class="callsheet" role="group" aria-label="Call sheet, Day 1">
+      <h4>Call sheet · Day 1 of 18 · "Last Light"</h4>
+      <table>
+        <tr><td>General crew call</td><td>6:00 a.m.</td></tr>
+        <tr class="mine"><td>Production assistants</td><td>5:30 a.m. · report to key PA (Marco)</td></tr>
+        <tr><td>Basecamp</td><td>Lot on Elm Street at Main</td></tr>
+        <tr><td>Crew parking</td><td>West side of the basecamp lot</td></tr>
+        <tr><td>Set</td><td>Main Street at Third Avenue (2 blocks east)</td></tr>
+        <tr><td>Nearest hospital</td><td>St. Agnes Hospital, 1200 Elm Street, 2.1 mi</td></tr>
+        <tr><td>Weather</td><td>Clear, 54–71 °F, sunset 6:52 p.m.</td></tr>
+        <tr><td>Scenes</td><td>12, 13 (ext. street, day) · 27 (picture car)</td></tr>
+      </table>
+    </div>
+    <figure class="map"><!--map:basecamp--><figcaption>Basecamp. You start at sign-in, by the lot exit.</figcaption></figure>
+    <p class="scene-text">You pull up at 5:40. <em>Marco, the key PA,</em> is already setting out cones. He looks at his watch.</p>
+    <div class="decision">
+      <p class="prompt">What do you say?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="-10,0,0"><p class="say">"My call was 6:00, so I'm early."</p><p class="result">Marco: "General crew call is 6. PAs were 5:30. Read your line on the sheet."</p><span class="meta">(−10, 0, 0)</span></li>
+        <li class="opt" data-key="B" data-m="5,0,0" data-best><p class="say">"Sorry, I misread my call. What do you need?" And you check your own line next time.</p><p class="result">Marco hands you a stack of sides. "Next time be here 15 early. Early is on time."</p><span class="meta">(+5, 0, 0)</span></li>
+        <li class="opt" data-key="C" data-m="-5,0,0"><p class="say">"Sorry, traffic was bad."</p><p class="result">Marco: "Traffic's always bad."</p><span class="meta">(−5, 0, 0)</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>PAs often have an earlier call than general crew call. Your call is on your line of the sheet. Early is on time; on time is late.</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <section class="beat" id="s1h" data-next="s2" data-title="Nearest hospital">
+    <span class="slate"><span>Scene 1</span><span>Call Time</span><span>5:45 a.m.</span></span>
+    <h2>Quick check</h2>
+    <p class="scene-text">Marco: "First thing I ask every new PA. Where's the nearest hospital?"</p>
+    <div class="decision">
+      <p class="prompt">Which line of the call sheet answers him?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="0,0,0"><p class="say">Basecamp: lot on Elm Street at Main</p><p class="result">That's where you're standing. Look further down the sheet.</p><span class="meta">(0, 0, 0)</span></li>
+        <li class="opt" data-key="B" data-m="0,0,0" data-best><p class="say">St. Agnes Hospital, 1200 Elm Street, 2.1 mi</p><p class="result">Marco: "Good. Most people have to look."</p><span class="meta">(0, 0, 0)</span></li>
+        <li class="opt" data-key="C" data-m="0,0,0"><p class="say">"I'd look it up on my phone."</p><p class="result">Marco: "In an emergency you won't have time. It's on the sheet."</p><span class="meta">(0, 0, 0)</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>The nearest hospital is on every call sheet. Know it before you need it.</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <!-- SCENE 2 -->
+  <section class="beat" id="s2" data-next="s3a" data-title="The radio">
+    <span class="slate"><span>Scene 2</span><span>The Radio</span><span>6:15 a.m.</span></span>
+    <h2>The radio</h2>
+    <p class="scene-text">Marco hands you a walkie and an earpiece. "Production's on channel 1. Don't talk on it unless you have to."</p>
+    <div class="radio"><p><b>Dana:</b> Marco, Dana.</p></div>
+    <p class="scene-text">Marco's guiding a truck back and doesn't answer. <em>Dana is the 2nd AD,</em> and your boss today. Ten seconds later:</p>
+    <div class="radio"><p><b>Dana:</b> Anyone near basecamp?</p></div>
+    <div class="decision">
+      <p class="prompt">You're at basecamp. What do you say?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="10,5,0" data-best><p class="say">"Go for [your name], I'm at basecamp."</p><p class="result">Dana: "Need the sides for Jules in hair and makeup." You: "Copy." You take the route on the basecamp map.</p><span class="meta">(+10, +5, 0)</span></li>
+        <li class="opt" data-key="B" data-m="0,-5,0"><p class="say">"Hi Dana, this is the new PA, I'm at basecamp right now, what do you need me to do?"</p><p class="result">Dana: "…Need sides in makeup. Keep it short on 1."</p><span class="meta">(0, −5, 0)</span></li>
+        <li class="opt" data-key="C" data-m="-5,-5,0"><p class="say">Wait for Marco to answer.</p><p class="result">Dana, again: "Anyone?" Marco finally answers and gives you a look.</p><span class="meta">(−5, −5, 0)</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>Answer with "go for" and your name. Confirm with "copy". Keep channel 1 short: if it takes more than a sentence, say "go to 2" and switch.</div>
+    <details class="card" style="margin-top:1rem">
+      <summary><b>Radio words</b></summary>
+      <table class="debrief-table" style="margin-top:0.5rem">
+        <tr><td><b>Go for [name]</b></td><td>How you answer when called</td></tr>
+        <tr><td><b>Copy</b></td><td>I heard and understood</td></tr>
+        <tr><td><b>Flying in</b></td><td>On my way</td></tr>
+        <tr><td><b>Go to 2</b></td><td>Switch channels for a longer talk</td></tr>
+        <tr><td><b>What's your 20?</b></td><td>Where are you?</td></tr>
+        <tr><td><b>10-1</b></td><td>Bathroom break</td></tr>
+      </table>
+    </details>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <!-- SCENE 3 -->
+  <section class="beat" id="s3a" data-next="s3b" data-title="Where to stand">
+    <span class="slate"><span>Scene 3</span><span>The Lockup</span><span>9:20 a.m.</span></span>
+    <h2>The lockup: where do you stand?</h2>
+    <p class="scene-text">Marco puts you on the corner of Main and Third. "Nobody walks into the shot while we're rolling. Find a spot where you can see anyone coming. I'll be back."</p>
+    <p class="scene-text">They're lighting a shot of <em>Jules,</em> the lead. Jules plays the scene to the other actor, who stands just beside the lens.</p>
+    <figure class="map"><!--map:lockup--><figcaption>Tap A, B or C on the map, or use the buttons below.</figcaption></figure>
+    <div class="decision">
+      <p class="prompt">Where do you stand?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="5,5,0" data-best><p class="say">At the corner, behind the camera's side, with a clear view up the avenue</p><p class="result">Marco, passing: "Good spot."</p><span class="meta">(+5, +5, 0)</span></li>
+        <li class="opt" data-key="B" data-m="-10,-5,0" data-lit="eyeline"><p class="say">Beside the camera, so you can hear the AD</p><p class="result">Jules stops mid-line. Dana: "Whoever's by camera, you're in Jules's eyeline. Clear it, please." The eyeline is lit on the map.</p><span class="meta">(−10, −5, 0)</span></li>
+        <li class="opt" data-key="C" data-m="-5,-10,0" data-lit="frame"><p class="say">Halfway down the block, closer to where people come from</p><p class="result">The camera operator: "There's someone in the back of frame." You're the someone. The frame is lit on the map.</p><span class="meta">(−5, −10, 0)</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>An actor's eyeline is where they look during the shot, usually at the other actor beside the lens. Never stand in it, and don't watch an actor during a take. If you can see the lens, it may see you. When in doubt, ask "Am I clear?"</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <section class="beat" id="s3b" data-next="s4" data-title="The neighbour">
+    <span class="slate"><span>Scene 3</span><span>The Lockup</span><span>9:30 a.m.</span></span>
+    <h2>The lockup: the neighbour</h2>
+    <p class="scene-text">You're at the corner, out of frame and out of the eyeline.</p>
+    <div class="radio"><p><b>Dana:</b> Lock it up… Rolling!</p></div>
+    <p class="scene-text">A neighbour with grocery bags comes down the avenue to your corner. "I live right there. I just need to get through."</p>
+    <div class="decision">
+      <p class="prompt">What do you do?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="10,5,0" data-best><p class="say">"We're rolling right now. It'll be about a minute. Thanks so much for waiting." Then echo "rolling" on the radio.</p><p class="result">You hear "cut", and you walk them through. They thank you.</p><span class="meta">(+10, +5, 0)</span></li>
+        <li class="opt" data-key="B" data-m="-15,-15,0" data-next="s3r"><p class="say">Let them through. It's their street.</p><p class="result">They walk into the back of the shot. Radio: "Cut! Who's got that corner?"</p><span class="meta">(−15, −15, 0) · goes to the branch scene</span></li>
+        <li class="opt" data-key="C" data-m="-10,0,-5" data-next="s3r"><p class="say">Put out an arm and block them.</p><p class="result">They push past you, angry. Radio: "Cut!" You've touched a member of the public.</p><span class="meta">(−10, 0, −5) · goes to the branch scene</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>A lockup is a request, not an order. You can't legally stop the public, so be polite, give a time, and thank them. Never touch anyone. Echo "rolling" and "cut" so the next PA hears it too.</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <section class="beat" id="s3r" data-next="s4" data-title="Owning a mistake">
+    <p class="branch-note">Branch scene: only if the neighbour walked into the shot</p>
+    <span class="slate"><span>Scene 3b</span><span>Walk and Talk</span><span>9:40 a.m.</span></span>
+    <h2>Walk and talk</h2>
+    <p class="scene-text">Dana walks up. "What happened on your corner?"</p>
+    <div class="decision">
+      <p class="prompt">What do you say?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="10,0,0" data-best><p class="say">"That was my corner. My mistake. Next time I'll ask them to wait and tell them how long."</p><p class="result">Dana: "Good. It happens once."</p><span class="meta">(+10, 0, 0)</span></li>
+        <li class="opt" data-key="B" data-m="0,0,0"><p class="say">"They said they lived there. I didn't think I could stop them."</p><p class="result">Dana: "You can't stop them. You can ask nicely and tell them how long."</p><span class="meta">(0, 0, 0)</span></li>
+        <li class="opt" data-key="C" data-m="-10,0,0"><p class="say">"Nobody told me what to do."</p><p class="result">Dana: "Marco told you. Next time, ask if you're not sure."</p><span class="meta">(−10, 0, 0)</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>Own the mistake in one sentence and say what you'll do next time. ADs remember the answer more than the mistake.</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <!-- SCENE 4 -->
+  <section class="beat" id="s4" data-next="s5" data-title="Chain of command">
+    <span class="slate"><span>Scene 4</span><span>Between Setups</span><span>11:00 a.m.</span></span>
+    <h2>Two requests at once</h2>
+    <p class="scene-text">The crew is turning around for the reverse. Two requests reach you at the same moment.</p>
+    <p class="scene-text"><em>Rae, a grip:</em> "Hey, can you grab that C-stand and move it over by the truck?"</p>
+    <p class="scene-text"><em>Jules:</em> "Could you tell the director I want to try the line differently?"</p>
+    <div class="decision">
+      <p class="prompt">What do you do?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="10,0,5" data-best><p class="say">Tell Rae you'll check with Dana whether you're free to help. Tell Jules you'll pass it to the 2nd AD. Then radio Dana.</p><p class="result">Dana: "Copy, I'll tell the 1st. Rae can have you for five." Rae shows you how they want the stand carried.</p><span class="meta">(+10, 0, +5)</span></li>
+        <li class="opt" data-key="B" data-m="-10,-5,-5"><p class="say">Move the C-stand yourself, then walk over to the director.</p><p class="result">Rae: "Not like that. Don't touch my gear without asking." The 1st AD stops you before you reach the director.</p><span class="meta">(−10, −5, −5)</span></li>
+        <li class="opt" data-key="C" data-m="-5,0,0"><p class="say">Tell them both you're busy.</p><p class="result">Jules has to find someone else, and Rae carries it alone.</p><span class="meta">(−5, 0, 0)</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>You work for the AD department. Other departments' gear belongs to them: don't touch it unless they ask and show you how. Messages for the director go through the ADs.</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <!-- SCENE 5 -->
+  <section class="beat" id="s5" data-next="s6" data-title="The picture car">
+    <span class="slate"><span>Scene 5</span><span>The Picture Car</span><span>2:15 p.m.</span></span>
+    <h2>The picture car</h2>
+    <p class="scene-text">After lunch, the scene is a car pulling up fast to the kerb. The precision driver is rehearsing. You're holding the background extras on the sidewalk.</p>
+    <p class="scene-text">The car is backing up to its first mark. <em>One extra steps off the kerb to take a selfie, right into its path.</em> From camera, nobody can see them.</p>
+    <figure class="map"><!--map:picture-car--><figcaption>The car reverses east. The extra is in the driver's blind spot, and you're the only one who can see it.</figcaption></figure>
+    <div class="decision">
+      <p class="prompt">What do you do?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="10,-5,20" data-best><p class="say">On channel 1: "Hold the roll, person in the car's path!" Then move the extra back.</p><p class="result">Dana: "Holding! Thank you." The car stops. The stunt coordinator moves the extras' holding area back from the kerb.</p><span class="meta">(+10, −5, +20)</span></li>
+        <li class="opt" data-key="B" data-m="0,0,-10" data-next="s5r"><p class="say">Walk over and quietly ask the extra to step back.</p><p class="result">The car stops a few feet from them. The driver is shaken, and the stunt coordinator wants to know why nobody called it.</p><span class="meta">(0, 0, −10) · goes to the branch scene</span></li>
+        <li class="opt" data-key="C" data-m="-10,0,-25" data-next="s5r"><p class="say">It's only a rehearsal and the driver can see. Say nothing.</p><p class="result">The driver can't see behind the car. Someone shouts. The car stops with inches to spare.</p><span class="meta">(−10, 0, −25) · goes to the branch scene</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout ember"><b>On set</b>Anyone on set can call a hold for safety, and nobody will be angry that you did. Call it first, then fix it. A lost minute is cheap; an injury shuts down the shoot.</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <section class="beat" id="s5r" data-next="s6" data-title="After a near miss">
+    <p class="branch-note">Branch scene: only if the hold wasn't called</p>
+    <span class="slate"><span>Scene 5b</span><span>Safety Meeting</span><span>2:30 p.m.</span></span>
+    <h2>Safety meeting</h2>
+    <p class="scene-text">Nobody was hurt. The 1st AD stops work and calls the crew together. "Who had eyes on the sidewalk?"</p>
+    <div class="decision">
+      <p class="prompt">What do you do?</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-m="10,0,10" data-best><p class="say">"I did. I saw them step off, and I should have called a hold."</p><p class="result">1st AD: "Thank you. Next time, call it. Everyone hear that? Anyone can call it."</p><span class="meta">(+10, 0, +10)</span></li>
+        <li class="opt" data-key="B" data-m="-15,0,-5"><p class="say">Say nothing.</p><p class="result">The extra points at you.</p><span class="meta">(−15, 0, −5)</span></li>
+      </ol>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout ember"><b>On set</b>After a near miss, tell the truth fast. The safety meeting exists so it doesn't happen twice.</div>
+    <div class="next-row"><button class="btn" type="button">Continue</button></div>
+  </section>
+
+  <!-- SCENE 6 -->
+  <section class="beat" id="s6" data-next="ending" data-title="Wrapping out">
+    <span class="slate"><span>Scene 6</span><span>Martini Shot</span><span>6:45 p.m.</span></span>
+    <h2>Wrap</h2>
+    <div class="radio"><p><b>Dana:</b> That's a wrap on the day. Thanks, everyone.</p></div>
+    <p class="scene-text">You've been up since 4.</p>
+    <div class="decision" data-type="multi" data-pass="10,5,0" data-fail="-5,0,0"
+         data-pass-text="Marco: &quot;See you tomorrow. Same call.&quot;"
+         data-fail-text="Marco catches you at your car: &quot;You still have my walkie.&quot;">
+      <p class="prompt">What do you do before you leave? Choose all that apply.</p>
+      <ol class="opts">
+        <li class="opt" data-key="A" data-right="1"><p class="say">Return your walkie and earpiece to Marco</p><span class="meta">(do it)</span></li>
+        <li class="opt" data-key="B" data-right="1"><p class="say">Pick up the cones and signs from your corner</p><span class="meta">(do it)</span></li>
+        <li class="opt" data-key="C" data-right="1"><p class="say">Check you have tomorrow's call sheet</p><span class="meta">(do it)</span></li>
+        <li class="opt" data-key="D" data-right="1"><p class="say">Sign out with the key PA</p><span class="meta">(do it)</span></li>
+        <li class="opt" data-key="E" data-right="0"><p class="say">Head straight home</p><span class="meta">(not yet)</span></li>
+      </ol>
+      <p class="nojs dim">All four done and nothing missed: (+10, +5, 0). Missed any: (−5, 0, 0).</p>
+      <div class="outcome" aria-live="polite"></div>
+    </div>
+    <div class="onset callout"><b>On set</b>You're not wrapped until the PAs are wrapped. A missing walkie gets charged to the production.</div>
+    <div class="next-row"><button class="btn" type="button">See how the day went</button></div>
+  </section>
+
+  <!-- ENDING -->
+  <section class="beat" id="ending" data-enter="ending">
+    <span class="slate"><span>End of day</span><span>Wrap</span></span>
+    <h2>How the day went</h2>
+    <p class="end-note">Three endings, decided by the meters:</p>
+    <div class="end feature" data-end="back"><p class="end-note">Asked back: safety 60+ and crew trust 60+</p><p class="lede" style="margin:0">Dana: "Same call tomorrow. Nice work today."</p></div>
+    <div class="end card" data-end="day" style="margin-top:0.8rem"><p class="end-note">Day player: safety 40+, but not asked back</p><p class="lede" style="margin:0">Marco: "Dana says they've got you down as a maybe for next week."</p></div>
+    <div class="end callout ember" data-end="talk"><p class="end-note">Talk with the 2nd AD: safety under 40, whatever else happened</p><b>Talk with the 2nd AD</b>Dana: "Can I have a minute? Let's go through today."</div>
+    <ul class="final-reads js-only"></ul>
+    <p class="js-only"><button class="btn" type="button" data-go="debrief">Debrief</button></p>
+  </section>
+
+  <!-- DEBRIEF -->
+  <section class="beat" id="debrief" data-enter="debrief">
+    <span class="slate"><span>Debrief</span><span>Your day</span></span>
+    <h2>Debrief</h2>
+    <div class="js-only">
+      <p class="dim" style="margin:0">Best calls</p>
+      <p class="score">0 / 0</p>
+      <table class="debrief-table" style="margin-top:1rem">
+        <thead><tr><th>Moment</th><th>You chose</th><th>Best</th><th>The rule</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="nojs">With JavaScript on, this screen lists every choice you made beside the best answer and the rule behind it.</p>
+
+    <h3>Keep the card</h3>
+    <div class="feature" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between">
+      <span><b>The PA's First-Day Card:</b> radio words, the lockup script, where to stand, who you work for, safety, and the wrap checklist on one page.</span>
+      <a class="btn" href="pa-first-day-card.pdf">Download the PDF</a>
+    </div>
+
+    <h3>How ready do you feel for your first day?</h3>
+    <div class="rating js-only" role="group" aria-label="Readiness, 1 to 5">
+      <button class="btn ghost" type="button" aria-pressed="false">1</button>
+      <button class="btn ghost" type="button" aria-pressed="false">2</button>
+      <button class="btn ghost" type="button" aria-pressed="false">3</button>
+      <button class="btn ghost" type="button" aria-pressed="false">4</button>
+      <button class="btn ghost" type="button" aria-pressed="false">5</button>
+    </div>
+    <p class="rating-thanks dim" hidden>Thanks. In a live course this answer would go to the training lead; in this sample it isn't recorded.</p>
+
+    <p class="js-only" style="margin-top:2rem"><button class="btn ghost" type="button" data-go="restart">Run the day again</button></p>
+  </section>
+</main>
+
+<footer class="sls-foot">© 2026 Savage Light Studios · Scenario by Feralucce Savage · Written for a non-union indie feature in the US. Your set may differ: your AD has the final word.</footer>
+<script src="../assets/scenario.js"></script>
+</body>
+</html>

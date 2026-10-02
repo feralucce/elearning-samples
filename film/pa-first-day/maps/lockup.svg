@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" role="img" aria-labelledby="t d" font-family="Montserrat, 'Segoe UI', sans-serif">
+  <title id="t">The lockup map</title>
+  <desc id="d">Top-down map of the block. The camera sits on the north sidewalk near the corner of Main Street and Third Avenue, pointing east at Jules. Its frame widens east down the block. Jules looks back toward the lens, so the space beside the camera is in their eyeline. Pedestrians arrive down Third Avenue to the corner. Spot A is at the corner, behind the camera and out of frame. Spot B is beside the camera, in Jules's eyeline. Spot C is down the block, inside the frame.</desc>
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#2f2f2f" stroke-width="1"/>
+    </pattern>
+    <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#3a342f" stroke-width="2"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#ffffff"/>
+    </marker>
+    <clipPath id="mapclip"><rect x="40" y="40" width="920" height="600"/></clipPath>
+  </defs>
+
+  <!-- frame -->
+  <rect x="0" y="0" width="1000" height="760" fill="#111111"/>
+  <rect x="40" y="40" width="920" height="600" fill="#1a1a1a"/>
+  <rect x="40" y="40" width="920" height="600" fill="url(#grid)"/>
+
+  <g clip-path="url(#mapclip)">
+    <!-- buildings (north and south blocks, west corner lots) -->
+    <g fill="url(#hatch)" stroke="#a79281" stroke-width="3">
+      <rect x="40" y="40" width="160" height="170"/>
+      <rect x="320" y="40" width="250" height="170"/>
+      <rect x="570" y="40" width="200" height="170"/>
+      <rect x="770" y="40" width="190" height="170"/>
+      <rect x="40" y="500" width="160" height="140"/>
+      <rect x="320" y="500" width="640" height="140"/>
+    </g>
+    <!-- kerbs -->
+    <g stroke="#a79281" stroke-width="2" fill="none" opacity="0.7">
+      <path d="M200 270H40 M320 270H960 M200 440H40 M320 440H960"/>
+      <path d="M200 40V270 M320 40V270 M200 440V640 M320 440V640"/>
+    </g>
+    <!-- lane lines -->
+    <g stroke="#6b6158" stroke-width="2" stroke-dasharray="18 14">
+      <path d="M40 355H200 M320 355H960"/>
+      <path d="M260 40V270 M260 440V640"/>
+    </g>
+
+    <!-- frame cone -->
+    <path class="frame-cone" d="M430 238 L1000 52 L1000 424 Z" fill="#6ec1e4" fill-opacity="0.10" stroke="#6ec1e4" stroke-width="2.5" stroke-dasharray="10 7"/>
+
+    <!-- eyeline wedge: Jules looks just past the lens -->
+    <path class="eyeline-wedge" d="M700 236 L405 205 L405 268 Z" fill="#00b4f0" fill-opacity="0.12"/>
+    <line x1="700" y1="236" x2="455" y2="252" stroke="#00b4f0" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/>
+
+    <!-- pedestrian route -->
+    <path d="M232 60 V200 Q232 236 262 236 H274" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+
+    <!-- lighting stand near Jules -->
+    <g stroke="#a79281" stroke-width="2" fill="none">
+      <circle cx="745" cy="222" r="5"/><path d="M745 222 l-12 -10 M745 222 l14 -6 M745 222 l0 14"/>
+    </g>
+
+    <!-- video village tent, south sidewalk -->
+    <rect x="600" y="452" width="120" height="44" fill="#222222" stroke="#a79281" stroke-width="2"/>
+    <text x="660" y="479" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.5" fill="#a79281">VIDEO VILLAGE</text>
+
+    <!-- camera -->
+    <g transform="translate(418 238)">
+      <rect x="-16" y="-11" width="26" height="22" rx="3" fill="#2c2c2c" stroke="#6ec1e4" stroke-width="2.5"/>
+      <path d="M10 -7 L22 -12 L22 12 L10 7 Z" fill="#6ec1e4"/>
+    </g>
+    <text x="398" y="292" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="1.5" fill="#6ec1e4">CAMERA</text>
+
+    <!-- off-camera actor beside the lens -->
+    <circle cx="455" cy="254" r="9" fill="#222222" stroke="#d3e0ff" stroke-width="2"/>
+    <path d="M450 263 L424 300" stroke="#d3e0ff" stroke-width="1" opacity="0.6"/><text x="398" y="314" text-anchor="middle" font-size="11" fill="#d3e0ff">OFF-CAMERA ACTOR</text>
+
+    <!-- Jules -->
+    <circle cx="704" cy="236" r="11" fill="#d3e0ff"/>
+    <text x="704" y="196" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1" fill="#ffffff">JULES</text>
+    <text x="704" y="263" text-anchor="middle" font-size="10" fill="#b8c2cc">on their mark</text>
+
+    <!-- choice spots -->
+    <g font-size="17" font-weight="800" text-anchor="middle">
+      <g class="spot" data-key="A"><circle cx="300" cy="236" r="26" fill="transparent"/><circle cx="300" cy="236" r="16" fill="#111111" stroke="#ffffff" stroke-width="2.5"/><text x="300" y="242" fill="#ffffff">A</text></g>
+      <g class="spot" data-key="B"><circle cx="440" cy="214" r="26" fill="transparent"/><circle cx="440" cy="214" r="16" fill="#111111" stroke="#ffffff" stroke-width="2.5"/><text x="440" y="220" fill="#ffffff">B</text></g>
+      <g class="spot" data-key="C"><circle cx="860" cy="240" r="26" fill="transparent"/><circle cx="860" cy="240" r="16" fill="#111111" stroke="#ffffff" stroke-width="2.5"/><text x="860" y="246" fill="#ffffff">C</text></g>
+    </g>
+
+    <!-- street names -->
+    <g font-size="13" font-weight="700" letter-spacing="3" fill="#8a8178">
+      <text x="640" y="400" text-anchor="middle">MAIN STREET</text>
+      <text x="0" y="0" transform="translate(286 600) rotate(-90)">THIRD AVENUE</text>
+    </g>
+    <text x="940" y="300" text-anchor="end" font-size="11" fill="#b8c2cc">PA 2 holds the far end →</text>
+  </g>
+
+  <!-- compass -->
+  <g transform="translate(925 700)" font-size="12" font-weight="700" fill="#b8c2cc" text-anchor="middle">
+    <circle r="20" fill="#111111" stroke="#4d453f" stroke-width="2"/>
+    <path d="M0 -14 L6 4 L0 0 L-6 4 Z" fill="#b8c2cc"/>
+    <text y="-26">N</text>
+  </g>
+
+  <!-- scale bar: 20 px = 1 m -->
+  <g transform="translate(40 672)" font-size="11" fill="#b8c2cc">
+    <rect x="0" y="0" width="50" height="8" fill="#ffffff"/>
+    <rect x="50" y="0" width="50" height="8" fill="#111111" stroke="#ffffff" stroke-width="1.5"/>
+    <rect x="100" y="0" width="50" height="8" fill="#ffffff"/>
+    <rect x="150" y="0" width="50" height="8" fill="#111111" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="0" y="-6">0</text><text x="100" y="-6" text-anchor="middle">5 m</text><text x="200" y="-6" text-anchor="middle">10 m</text>
+    <text x="200" y="26" text-anchor="middle">≈ 33 ft</text>
+  </g>
+
+  <!-- key -->
+  <g transform="translate(330 668)" font-size="12" fill="#b8c2cc">
+    <path d="M0 4 H30" stroke="#6ec1e4" stroke-width="2.5" stroke-dasharray="10 7"/><text x="38" y="8">Camera frame</text>
+    <path d="M150 4 H180" stroke="#00b4f0" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/><text x="188" y="8">Eyeline</text>
+    <path d="M270 4 H300" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 6"/><text x="308" y="8">Pedestrians</text>
+    <circle cx="420" cy="4" r="9" fill="#111111" stroke="#ffffff" stroke-width="2"/><text x="420" y="8" text-anchor="middle" font-size="10" font-weight="800" fill="#ffffff">A</text><text x="436" y="8">Where you could stand</text>
+    <text x="0" y="40" font-size="11">Not to scale for people. Buildings hatched.</text>
+  </g>
+</svg>
