@@ -49,7 +49,7 @@ DAYS = [
         (46, "Playback: the commercial", "", "", e(0, 3), [6], ""),
         (47, "Playback: Bernie Baxter's haunted TV studio", "", "", e(0, 4), [7], ""),
         (48, "Playback: the science lab", "", "", e(1, 5), [8, 9],
-         "The playback on the TV is the first scene we shoot; it's the last scene in the script."),
+         "The playback on the TV is the first scene we are shooting - it is the last scene in the script."),
     ]),
     ("Fri Aug 23", "Nell day", "7:00 a.m.", [
         (12, "Dani's house", "EXT", "Morning", e(0, 2), [2], ""),
@@ -65,7 +65,7 @@ DAYS = [
     ]),
     ("Sat Aug 24", "Suzie day", "7:00 a.m.", [
         (7, "Dani's kitchen: the dog bowls", "INT", "", e(0, 3), [3, 5],
-         "Animal actor: most likely the hardest scene of the day, so it's scheduled first to make the day easier."),
+         "Animal Actor - Most likely the hardest scene of the day - scheduling it first to make the day easier."),
         (8, "Dani's house", "EXT", "", e(0, 2), [3], ""),
         (17, "Dani's house: the doorbell", "EXT", "", e(0, 1), [4], ""),
         (19, "Dani's house: Suzie at the door", "EXT", "", e(0, 4), [4], ""),
@@ -84,7 +84,7 @@ DAYS = [
         (4, "Dani's bedroom", "INT", "", e(0, 2), [1], ""),
         (5, "Dani's kitchen", "INT", "", e(0, 3), [5], ""),
         (6, "Dani's house: Dani drives off", "EXT", "", e(0, 1), [1],
-         "Has to be in daylight; can't shoot it first because of a costume change."),
+         "Has to be during daylight - can't shoot first, costume change."),
         (31, "Dani's house", "INT", "", e(0, 3), [1], ""),
         (32, "Dani's hallway", "INT", "", e(0, 2), [1], ""),
         (33, "Dani's bathroom", "INT", "", e(0, 2), [1], ""),
@@ -103,7 +103,7 @@ DAYS = [
         (10, "Dani's house: Dani pulls in", "EXT", "Night", e(0, 1), [1], ""),
         (30, "Dani's house: Dani's car pulls in", "EXT", "Night", e(0, 2), [1], ""),
         (11, "Dani's kitchen: time passes", "INT", "Night", e(0, 2), [5],
-         "A special lighting shot; may shoot on another day if we have time."),
+         "This is a special lighting shot, MAY shoot on another day if we have time."),
     ]),
 ]
 
